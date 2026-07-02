@@ -41,6 +41,12 @@ h1.site-title {
   letter-spacing: -0.02em;
 }
 
+.site-subtitle {
+  margin: var(--space-sm) 0 0;
+  font-size: var(--text-subheading);
+  color: var(--color-text-muted);
+}
+
 main {
   padding: 0 var(--space-md) var(--space-section);
   max-width: 72rem;
