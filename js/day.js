@@ -38,14 +38,16 @@ function renderViewer(root, { topicId, topicMeta, days, day }) {
   viewer.className = "viewer";
 
   const backLink = document.createElement("a");
-  backLink.className = "viewer-back";
+  backLink.className = "viewer-icon-button viewer-back";
   backLink.href = `topic.html?topic=${encodeURIComponent(topicId)}`;
-  backLink.textContent = "← Danh sách";
+  backLink.textContent = "←";
+  backLink.setAttribute("aria-label", "Danh sách");
+  backLink.title = "Danh sách";
 
   const imageWrap = document.createElement("div");
   imageWrap.className = "viewer-image-wrap";
 
-  const ZOOM_STEP = 0.1;
+  const ZOOM_STEP = 0.05;
   const ZOOM_MIN = 1;
   const ZOOM_MAX = 4;
   let zoomLevel = ZOOM_MIN;
