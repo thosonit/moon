@@ -1,282 +1,352 @@
 [
   {
     "day": 1,
-    "imagePath": "data/images/mindmap-heineman-gk7-p01.webp"
+    "imagePath": "data/images/mindmap-heineman-gk7-p01.webp",
+    "title": "At the Market"
   },
   {
     "day": 2,
-    "imagePath": "data/images/mindmap-heineman-gk7-p02.webp"
+    "imagePath": "data/images/mindmap-heineman-gk7-p02.webp",
+    "title": "Rex"
   },
   {
     "day": 3,
-    "imagePath": "data/images/mindmap-heineman-gk7-p03.webp"
+    "imagePath": "data/images/mindmap-heineman-gk7-p03.webp",
+    "title": "Funny Things"
   },
   {
     "day": 4,
-    "imagePath": "data/images/mindmap-heineman-gk7-p04.webp"
+    "imagePath": "data/images/mindmap-heineman-gk7-p04.webp",
+    "title": "The Baby Animals"
   },
   {
     "day": 5,
-    "imagePath": "data/images/mindmap-heineman-gk7-p05.webp"
+    "imagePath": "data/images/mindmap-heineman-gk7-p05.webp",
+    "title": "Over the River"
   },
   {
     "day": 6,
-    "imagePath": "data/images/mindmap-heineman-gk7-p06.webp"
+    "imagePath": "data/images/mindmap-heineman-gk7-p06.webp",
+    "title": "My Big Bear"
   },
   {
     "day": 7,
-    "imagePath": "data/images/mindmap-heineman-gk7-p07.webp"
+    "imagePath": "data/images/mindmap-heineman-gk7-p07.webp",
+    "title": "Making Soup"
   },
   {
     "day": 8,
-    "imagePath": "data/images/mindmap-heineman-gk7-p08.webp"
+    "imagePath": "data/images/mindmap-heineman-gk7-p08.webp",
+    "title": "My Family"
   },
   {
     "day": 9,
-    "imagePath": "data/images/mindmap-heineman-gk7-p09.webp"
+    "imagePath": "data/images/mindmap-heineman-gk7-p09.webp",
+    "title": "Playing Dress Up"
   },
   {
     "day": 10,
-    "imagePath": "data/images/mindmap-heineman-gk7-p10.webp"
+    "imagePath": "data/images/mindmap-heineman-gk7-p10.webp",
+    "title": "Mop"
   },
   {
     "day": 11,
-    "imagePath": "data/images/mindmap-heineman-gk7-p11.webp"
+    "imagePath": "data/images/mindmap-heineman-gk7-p11.webp",
+    "title": "At the zoo"
   },
   {
     "day": 12,
-    "imagePath": "data/images/mindmap-heineman-gk7-p12.webp"
+    "imagePath": "data/images/mindmap-heineman-gk7-p12.webp",
+    "title": "Baby"
   },
   {
     "day": 13,
-    "imagePath": "data/images/mindmap-heineman-gk7-p13.webp"
+    "imagePath": "data/images/mindmap-heineman-gk7-p13.webp",
+    "title": "Dad"
   },
   {
     "day": 14,
-    "imagePath": "data/images/mindmap-heineman-gk7-p14.webp"
+    "imagePath": "data/images/mindmap-heineman-gk7-p14.webp",
+    "title": "I can read"
   },
   {
     "day": 15,
-    "imagePath": "data/images/mindmap-heineman-gk7-p15.webp"
+    "imagePath": "data/images/mindmap-heineman-gk7-p15.webp",
+    "title": "Little Cub"
   },
   {
     "day": 16,
-    "imagePath": "data/images/mindmap-heineman-gk7-p16.webp"
+    "imagePath": "data/images/mindmap-heineman-gk7-p16.webp",
+    "title": "MOM"
   },
   {
     "day": 17,
-    "imagePath": "data/images/mindmap-heineman-gk7-p17.webp"
+    "imagePath": "data/images/mindmap-heineman-gk7-p17.webp",
+    "title": "On the way to school"
   },
   {
     "day": 18,
-    "imagePath": "data/images/mindmap-heineman-gk7-p18.webp"
+    "imagePath": "data/images/mindmap-heineman-gk7-p18.webp",
+    "title": "Playing Dress Up"
   },
   {
     "day": 19,
-    "imagePath": "data/images/mindmap-heineman-gk7-p19.webp"
+    "imagePath": "data/images/mindmap-heineman-gk7-p19.webp",
+    "title": "Tom"
   },
   {
     "day": 20,
-    "imagePath": "data/images/mindmap-heineman-gk7-p20.webp"
+    "imagePath": "data/images/mindmap-heineman-gk7-p20.webp",
+    "title": "The park"
   },
   {
     "day": 21,
-    "imagePath": "data/images/mindmap-heineman-gk7-p21.webp"
+    "imagePath": "data/images/mindmap-heineman-gk7-p21.webp",
+    "title": "MAKING A PIZZA"
   },
   {
     "day": 22,
-    "imagePath": "data/images/mindmap-heineman-gk7-p22.webp"
+    "imagePath": "data/images/mindmap-heineman-gk7-p22.webp",
+    "title": "A Visit from Aunt Bee"
   },
   {
     "day": 23,
-    "imagePath": "data/images/mindmap-heineman-gk7-p23.webp"
+    "imagePath": "data/images/mindmap-heineman-gk7-p23.webp",
+    "title": "Birds"
   },
   {
     "day": 24,
-    "imagePath": "data/images/mindmap-heineman-gk7-p24.webp"
+    "imagePath": "data/images/mindmap-heineman-gk7-p24.webp",
+    "title": "Flap, Flap, Fly"
   },
   {
     "day": 25,
-    "imagePath": "data/images/mindmap-heineman-gk7-p25.webp"
+    "imagePath": "data/images/mindmap-heineman-gk7-p25.webp",
+    "title": "At The Pond"
   },
   {
     "day": 26,
-    "imagePath": "data/images/mindmap-heineman-gk7-p26.webp"
+    "imagePath": "data/images/mindmap-heineman-gk7-p26.webp",
+    "title": "Playing Together"
   },
   {
     "day": 27,
-    "imagePath": "data/images/mindmap-heineman-gk7-p27.webp"
+    "imagePath": "data/images/mindmap-heineman-gk7-p27.webp",
+    "title": "POLLY"
   },
   {
     "day": 28,
-    "imagePath": "data/images/mindmap-heineman-gk7-p28.webp"
+    "imagePath": "data/images/mindmap-heineman-gk7-p28.webp",
+    "title": "At the Farm"
   },
   {
     "day": 29,
-    "imagePath": "data/images/mindmap-heineman-gk7-p29.webp"
+    "imagePath": "data/images/mindmap-heineman-gk7-p29.webp",
+    "title": "The Sidewalk"
   },
   {
     "day": 30,
-    "imagePath": "data/images/mindmap-heineman-gk7-p30.webp"
+    "imagePath": "data/images/mindmap-heineman-gk7-p30.webp",
+    "title": "THE HAT"
   },
   {
     "day": 31,
-    "imagePath": "data/images/mindmap-heineman-gk7-p31.webp"
+    "imagePath": "data/images/mindmap-heineman-gk7-p31.webp",
+    "title": "THE PET STORE"
   },
   {
     "day": 32,
-    "imagePath": "data/images/mindmap-heineman-gk7-p32.webp"
+    "imagePath": "data/images/mindmap-heineman-gk7-p32.webp",
+    "title": "Going on Vacation"
   },
   {
     "day": 33,
-    "imagePath": "data/images/mindmap-heineman-gk7-p33.webp"
+    "imagePath": "data/images/mindmap-heineman-gk7-p33.webp",
+    "title": "Wheels"
   },
   {
     "day": 34,
-    "imagePath": "data/images/mindmap-heineman-gk7-p34.webp"
+    "imagePath": "data/images/mindmap-heineman-gk7-p34.webp",
+    "title": "Hiding"
   },
   {
     "day": 35,
-    "imagePath": "data/images/mindmap-heineman-gk7-p35.webp"
+    "imagePath": "data/images/mindmap-heineman-gk7-p35.webp",
+    "title": "The Show"
   },
   {
     "day": 36,
-    "imagePath": "data/images/mindmap-heineman-gk7-p36.webp"
+    "imagePath": "data/images/mindmap-heineman-gk7-p36.webp",
+    "title": "HOP, HOP, HOP"
   },
   {
     "day": 37,
-    "imagePath": "data/images/mindmap-heineman-gk7-p37.webp"
+    "imagePath": "data/images/mindmap-heineman-gk7-p37.webp",
+    "title": "THE PUPPET SHOW"
   },
   {
     "day": 38,
-    "imagePath": "data/images/mindmap-heineman-gk7-p38.webp"
+    "imagePath": "data/images/mindmap-heineman-gk7-p38.webp",
+    "title": "RAIN"
   },
   {
     "day": 39,
-    "imagePath": "data/images/mindmap-heineman-gk7-p39.webp"
+    "imagePath": "data/images/mindmap-heineman-gk7-p39.webp",
+    "title": "MY BABY SISTER"
   },
   {
     "day": 40,
-    "imagePath": "data/images/mindmap-heineman-gk7-p40.webp"
+    "imagePath": "data/images/mindmap-heineman-gk7-p40.webp",
+    "title": "SO BIG"
   },
   {
     "day": 41,
-    "imagePath": "data/images/mindmap-heineman-gk7-p41.webp"
+    "imagePath": "data/images/mindmap-heineman-gk7-p41.webp",
+    "title": "THE PARADE"
   },
   {
     "day": 42,
-    "imagePath": "data/images/mindmap-heineman-gk7-p42.webp"
+    "imagePath": "data/images/mindmap-heineman-gk7-p42.webp",
+    "title": "FUN AT SCHOOL"
   },
   {
     "day": 43,
-    "imagePath": "data/images/mindmap-heineman-gk7-p43.webp"
+    "imagePath": "data/images/mindmap-heineman-gk7-p43.webp",
+    "title": "AT SCHOOL"
   },
   {
     "day": 44,
-    "imagePath": "data/images/mindmap-heineman-gk7-p44.webp"
+    "imagePath": "data/images/mindmap-heineman-gk7-p44.webp",
+    "title": "MY BIG BROTHER"
   },
   {
     "day": 45,
-    "imagePath": "data/images/mindmap-heineman-gk7-p45.webp"
+    "imagePath": "data/images/mindmap-heineman-gk7-p45.webp",
+    "title": "GETTING READY"
   },
   {
     "day": 46,
-    "imagePath": "data/images/mindmap-heineman-gk7-p46.webp"
+    "imagePath": "data/images/mindmap-heineman-gk7-p46.webp",
+    "title": "My Room"
   },
   {
     "day": 47,
-    "imagePath": "data/images/mindmap-heineman-gk7-p47.webp"
+    "imagePath": "data/images/mindmap-heineman-gk7-p47.webp",
+    "title": "THE BABY"
   },
   {
     "day": 48,
-    "imagePath": "data/images/mindmap-heineman-gk7-p48.webp"
+    "imagePath": "data/images/mindmap-heineman-gk7-p48.webp",
+    "title": "GOING SLEDDING"
   },
   {
     "day": 49,
-    "imagePath": "data/images/mindmap-heineman-gk7-p49.webp"
+    "imagePath": "data/images/mindmap-heineman-gk7-p49.webp",
+    "title": "Making a Snowman"
   },
   {
     "day": 50,
-    "imagePath": "data/images/mindmap-heineman-gk7-p50.webp"
+    "imagePath": "data/images/mindmap-heineman-gk7-p50.webp",
+    "title": "My Lunch"
   },
   {
     "day": 51,
-    "imagePath": "data/images/mindmap-heineman-gk7-p51.webp"
+    "imagePath": "data/images/mindmap-heineman-gk7-p51.webp",
+    "title": "TOYS"
   },
   {
     "day": 52,
-    "imagePath": "data/images/mindmap-heineman-gk7-p52.webp"
+    "imagePath": "data/images/mindmap-heineman-gk7-p52.webp",
+    "title": "Little Things"
   },
   {
     "day": 53,
-    "imagePath": "data/images/mindmap-heineman-gk7-p53.webp"
+    "imagePath": "data/images/mindmap-heineman-gk7-p53.webp",
+    "title": "Packing My Bag"
   },
   {
     "day": 54,
-    "imagePath": "data/images/mindmap-heineman-gk7-p54.webp"
+    "imagePath": "data/images/mindmap-heineman-gk7-p54.webp",
+    "title": "Setting the Table"
   },
   {
     "day": 55,
-    "imagePath": "data/images/mindmap-heineman-gk7-p55.webp"
+    "imagePath": "data/images/mindmap-heineman-gk7-p55.webp",
+    "title": "The Flower"
   },
   {
     "day": 56,
-    "imagePath": "data/images/mindmap-heineman-gk7-p56.webp"
+    "imagePath": "data/images/mindmap-heineman-gk7-p56.webp",
+    "title": "PLAY AND RIDE"
   },
   {
     "day": 57,
-    "imagePath": "data/images/mindmap-heineman-gk7-p57.webp"
+    "imagePath": "data/images/mindmap-heineman-gk7-p57.webp",
+    "title": "MY BEAR"
   },
   {
     "day": 58,
-    "imagePath": "data/images/mindmap-heineman-gk7-p58.webp"
+    "imagePath": "data/images/mindmap-heineman-gk7-p58.webp",
+    "title": "What is very long ?"
   },
   {
     "day": 59,
-    "imagePath": "data/images/mindmap-heineman-gk7-p59.webp"
+    "imagePath": "data/images/mindmap-heineman-gk7-p59.webp",
+    "title": "THE PLAY"
   },
   {
     "day": 60,
-    "imagePath": "data/images/mindmap-heineman-gk7-p60.webp"
+    "imagePath": "data/images/mindmap-heineman-gk7-p60.webp",
+    "title": "OUR PETS"
   },
   {
     "day": 61,
-    "imagePath": "data/images/mindmap-heineman-gk7-p61.webp"
+    "imagePath": "data/images/mindmap-heineman-gk7-p61.webp",
+    "title": "GOING ON A TRAIN RIDE"
   },
   {
     "day": 62,
-    "imagePath": "data/images/mindmap-heineman-gk7-p62.webp"
+    "imagePath": "data/images/mindmap-heineman-gk7-p62.webp",
+    "title": "Spots"
   },
   {
     "day": 63,
-    "imagePath": "data/images/mindmap-heineman-gk7-p63.webp"
+    "imagePath": "data/images/mindmap-heineman-gk7-p63.webp",
+    "title": "Playing with Blocks"
   },
   {
     "day": 64,
-    "imagePath": "data/images/mindmap-heineman-gk7-p64.webp"
+    "imagePath": "data/images/mindmap-heineman-gk7-p64.webp",
+    "title": "Drawing"
   },
   {
     "day": 65,
-    "imagePath": "data/images/mindmap-heineman-gk7-p65.webp"
+    "imagePath": "data/images/mindmap-heineman-gk7-p65.webp",
+    "title": "Helping"
   },
   {
     "day": 66,
-    "imagePath": "data/images/mindmap-heineman-gk7-p66.webp"
+    "imagePath": "data/images/mindmap-heineman-gk7-p66.webp",
+    "title": "Baking"
   },
   {
     "day": 67,
-    "imagePath": "data/images/mindmap-heineman-gk7-p67.webp"
+    "imagePath": "data/images/mindmap-heineman-gk7-p67.webp",
+    "title": "Out to Play"
   },
   {
     "day": 68,
-    "imagePath": "data/images/mindmap-heineman-gk7-p68.webp"
+    "imagePath": "data/images/mindmap-heineman-gk7-p68.webp",
+    "title": "Painting"
   },
   {
     "day": 69,
-    "imagePath": "data/images/mindmap-heineman-gk7-p69.webp"
+    "imagePath": "data/images/mindmap-heineman-gk7-p69.webp",
+    "title": "Animals That Go Fast"
   },
   {
     "day": 70,
-    "imagePath": "data/images/mindmap-heineman-gk7-p70.webp"
+    "imagePath": "data/images/mindmap-heineman-gk7-p70.webp",
+    "title": "Things That Go Fast"
   }
 ]
