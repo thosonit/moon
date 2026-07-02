@@ -1,3 +1,5 @@
+const TOPIC_MASCOTS = ["🐰", "🐻", "🐱", "🐧", "🦊", "🐼"];
+
 async function loadTopics() {
   const response = await fetch("data/topics.json");
   if (!response.ok) {
@@ -10,10 +12,15 @@ function renderTopics(topics) {
   const grid = document.getElementById("topic-grid");
   grid.innerHTML = "";
 
-  for (const topic of topics) {
+  topics.forEach((topic, index) => {
     const card = document.createElement("a");
     card.className = "topic-card";
     card.href = `topic.html?topic=${encodeURIComponent(topic.id)}`;
+
+    const mascot = document.createElement("span");
+    mascot.className = "topic-mascot";
+    mascot.setAttribute("aria-hidden", "true");
+    mascot.textContent = TOPIC_MASCOTS[index % TOPIC_MASCOTS.length];
 
     const title = document.createElement("h2");
     title.textContent = topic.title;
@@ -21,9 +28,9 @@ function renderTopics(topics) {
     const meta = document.createElement("p");
     meta.textContent = `${topic.totalDays} ngày`;
 
-    card.append(title, meta);
+    card.append(mascot, title, meta);
     grid.append(card);
-  }
+  });
 }
 
 loadTopics()
