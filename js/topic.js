@@ -38,7 +38,7 @@ function renderDays(topicId, topicMeta, days) {
 
     const link = document.createElement("a");
     link.href = `day.html?topic=${encodeURIComponent(topicId)}&day=${entry.day}`;
-    link.textContent = `Ngày ${entry.day}`;
+    link.textContent = entry.title ? `Ngày ${entry.day}: ${entry.title}` : `Ngày ${entry.day}`;
 
     item.append(link);
     list.append(item);
