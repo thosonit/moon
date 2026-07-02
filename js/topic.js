@@ -38,8 +38,16 @@ function renderDays(topicId, topicMeta, days) {
 
     const link = document.createElement("a");
     link.href = `day.html?topic=${encodeURIComponent(topicId)}&day=${entry.day}`;
-    link.textContent = entry.title ? `Ngày ${entry.day}: ${entry.title}` : `Ngày ${entry.day}`;
 
+    const subtitle = document.createElement("span");
+    subtitle.className = "day-list-subtitle";
+    subtitle.textContent = `Bài ${entry.day}`;
+
+    const title = document.createElement("span");
+    title.className = "day-list-title";
+    title.textContent = entry.title || `Bài ${entry.day}`;
+
+    link.append(subtitle, title);
     item.append(link);
     list.append(item);
   }
