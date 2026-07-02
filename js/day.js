@@ -30,7 +30,7 @@ function renderNotFound(root) {
 
 function renderViewer(root, { topicId, topicMeta, days, day }) {
   const entry = days.find((d) => d.day === day);
-  const imageUrl = entry ? toDirectImageUrl(entry.driveUrl) : null;
+  const imageUrl = entry ? entry.imagePath || toDirectImageUrl(entry.driveUrl) : null;
 
   const isFirst = day <= 1;
   const isLast = day >= topicMeta.totalDays;
