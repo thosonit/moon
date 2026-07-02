@@ -32,13 +32,15 @@ function renderViewer(root, { topicId, topicMeta, days, day }) {
   const entry = days.find((d) => d.day === day);
   const imageUrl = entry ? entry.imagePath || toDirectImageUrl(entry.driveUrl) : null;
 
-  const isFirst = day <= 1;
-  const isLast = day >= topicMeta.totalDays;
-
   root.innerHTML = "";
 
   const viewer = document.createElement("div");
   viewer.className = "viewer";
+
+  const backLink = document.createElement("a");
+  backLink.className = "viewer-back";
+  backLink.href = `topic.html?topic=${encodeURIComponent(topicId)}`;
+  backLink.textContent = "← Danh sách";
 
   const imageWrap = document.createElement("div");
   imageWrap.className = "viewer-image-wrap";
@@ -56,32 +58,7 @@ function renderViewer(root, { topicId, topicMeta, days, day }) {
     imageWrap.append(placeholder);
   }
 
-  const controls = document.createElement("div");
-  controls.className = "viewer-controls";
-
-  const backLink = document.createElement("a");
-  backLink.href = `topic.html?topic=${encodeURIComponent(topicId)}`;
-  backLink.textContent = "← Danh sách";
-
-  const prevButton = document.createElement("button");
-  prevButton.textContent = "‹ Trước";
-  prevButton.disabled = isFirst;
-  prevButton.addEventListener("click", () => {
-    window.location.href = `day.html?topic=${encodeURIComponent(topicId)}&day=${day - 1}`;
-  });
-
-  const label = document.createElement("span");
-  label.textContent = `Ngày ${day} / ${topicMeta.totalDays}`;
-
-  const nextButton = document.createElement("button");
-  nextButton.textContent = "Sau ›";
-  nextButton.disabled = isLast;
-  nextButton.addEventListener("click", () => {
-    window.location.href = `day.html?topic=${encodeURIComponent(topicId)}&day=${day + 1}`;
-  });
-
-  controls.append(backLink, prevButton, label, nextButton);
-  viewer.append(imageWrap, controls);
+  viewer.append(backLink, imageWrap);
   root.append(viewer);
 }
 
