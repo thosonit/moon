@@ -121,9 +121,52 @@ a {
 
 @media (prefers-reduced-motion: reduce) {
   .topic-mascot,
-  .day-list-star {
+  .day-list-star,
+  .snowflake {
     animation: none !important;
   }
+}
+
+/* Snowfall (index.html, topic.html) */
+.snowfall {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.snowflake {
+  position: absolute;
+  top: -2rem;
+  font-size: var(--flake-size, 1rem);
+  color: var(--color-secondary);
+  opacity: 0.7;
+  animation: snow-fall var(--fall-duration, 12s) linear infinite;
+  animation-delay: var(--fall-delay, 0s);
+}
+
+@keyframes snow-fall {
+  0% {
+    transform: translate(0, -10vh) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.7;
+  }
+  90% {
+    opacity: 0.7;
+  }
+  100% {
+    transform: translate(var(--drift, 60px), 110vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+.site-header,
+main {
+  position: relative;
+  z-index: 1;
 }
 
 /* Topic grid (index.html) */

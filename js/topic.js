@@ -1,3 +1,5 @@
+import { initSnowfall } from "./snowfall.js";
+
 function getTopicIdFromQuery() {
   const params = new URLSearchParams(window.location.search);
   return params.get("topic");
@@ -54,6 +56,8 @@ function renderDays(topicId, topicMeta, days) {
 }
 
 async function init() {
+  initSnowfall();
+
   const topicId = getTopicIdFromQuery();
   if (!topicId) {
     renderNotFound();

@@ -1,3 +1,5 @@
+import { initSnowfall } from "./snowfall.js";
+
 const TOPIC_MASCOTS = ["🐰", "🐻", "🐱", "🐧", "🦊", "🐼"];
 
 async function loadTopics() {
@@ -32,6 +34,8 @@ function renderTopics(topics) {
     grid.append(card);
   });
 }
+
+initSnowfall();
 
 loadTopics()
   .then(renderTopics)
