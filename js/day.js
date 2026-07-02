@@ -45,8 +45,24 @@ function renderViewer(root, { topicId, topicMeta, days, day }) {
   const imageWrap = document.createElement("div");
   imageWrap.className = "viewer-image-wrap";
 
+  const ZOOM_STEP = 0.1;
+  const ZOOM_MIN = 1;
+  const ZOOM_MAX = 4;
+  let zoomLevel = ZOOM_MIN;
+  let img = null;
+  let zoomLabel = null;
+
+  function applyZoom() {
+    if (!img) return;
+    img.style.transform = `scale(${zoomLevel})`;
+    imageWrap.classList.toggle("is-zoomed", zoomLevel > ZOOM_MIN);
+    if (zoomLabel) {
+      zoomLabel.textContent = `${Math.round(zoomLevel * 100)}%`;
+    }
+  }
+
   if (imageUrl) {
-    const img = document.createElement("img");
+    img = document.createElement("img");
     img.className = "viewer-image";
     img.src = imageUrl;
     img.alt = `${topicMeta.title} - Ngày ${day}`;
@@ -58,7 +74,52 @@ function renderViewer(root, { topicId, topicMeta, days, day }) {
     imageWrap.append(placeholder);
   }
 
-  viewer.append(backLink, imageWrap);
+  const fullscreenButton = document.createElement("button");
+  fullscreenButton.type = "button";
+  fullscreenButton.className = "viewer-icon-button viewer-fullscreen";
+  fullscreenButton.textContent = "⛶";
+  fullscreenButton.setAttribute("aria-label", "Toàn màn hình");
+  fullscreenButton.title = "Toàn màn hình";
+  fullscreenButton.addEventListener("click", () => {
+    if (document.fullscreenElement) {
+      document.exitFullscreen();
+    } else {
+      viewer.requestFullscreen();
+    }
+  });
+
+  const zoomControls = document.createElement("div");
+  zoomControls.className = "viewer-zoom-controls";
+
+  const zoomOutButton = document.createElement("button");
+  zoomOutButton.type = "button";
+  zoomOutButton.className = "viewer-icon-button viewer-zoom-out";
+  zoomOutButton.textContent = "−";
+  zoomOutButton.setAttribute("aria-label", "Thu nhỏ");
+  zoomOutButton.title = "Thu nhỏ";
+  zoomOutButton.addEventListener("click", () => {
+    zoomLevel = Math.max(ZOOM_MIN, zoomLevel - ZOOM_STEP);
+    applyZoom();
+  });
+
+  const zoomInButton = document.createElement("button");
+  zoomInButton.type = "button";
+  zoomInButton.className = "viewer-icon-button viewer-zoom-in";
+  zoomInButton.textContent = "+";
+  zoomInButton.setAttribute("aria-label", "Phóng to");
+  zoomInButton.title = "Phóng to";
+  zoomInButton.addEventListener("click", () => {
+    zoomLevel = Math.min(ZOOM_MAX, zoomLevel + ZOOM_STEP);
+    applyZoom();
+  });
+
+  zoomLabel = document.createElement("span");
+  zoomLabel.className = "viewer-zoom-label";
+  zoomLabel.textContent = `${Math.round(zoomLevel * 100)}%`;
+
+  zoomControls.append(zoomOutButton, zoomLabel, zoomInButton);
+
+  viewer.append(backLink, imageWrap, fullscreenButton, zoomControls);
   root.append(viewer);
 }
 
