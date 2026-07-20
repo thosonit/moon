@@ -8,7 +8,9 @@ A static, no-build website for a child ("Moon - Quỳnh Như") to browse learnin
 
 ## Visual design direction
 
-See [`DESIGN.md`](./DESIGN.md) for the full UI design spec: a soft pastel-pink theme built for a 5-year-old girl, with rounded "kawaii" cards, a friendly rounded font pairing (Baloo 2 / Quicksand), and animal-mascot animations (gentle bounce, wave, twinkle, fly-across) implemented as compositor-friendly `transform`/`opacity` CSS keyframes with a `prefers-reduced-motion` guard. Consult it before making any styling or animation changes so new UI stays consistent with the intended direction (color tokens, button states, per-page layout).
+All UI must follow [`DESIGN.md`](./DESIGN.md), the source of truth for the visual design system: a soft pastel-pink theme built for a 5-year-old girl, with rounded "kawaii" cards, a friendly rounded font pairing (Baloo 2 / Quicksand), and animal-mascot animations (gentle bounce, wave, twinkle, fly-across) implemented as compositor-friendly `transform`/`opacity` CSS keyframes with a `prefers-reduced-motion` guard. Consult it before making any styling, layout, or animation changes — new UI must stay consistent with its design tokens (colors, typography, spacing, radii), component specs, and per-page layout, not introduce ad hoc values.
+
+**Icons:** use [Lucide Icons](https://lucide.dev) for all icon needs in the app. Do not use emoji, other icon libraries, or hand-drawn/custom icon glyphs for UI controls (buttons, nav, status indicators) — emoji remain fine for decorative headline flourishes per `DESIGN.md`, but functional icons must come from Lucide.
 
 ## Running locally
 
