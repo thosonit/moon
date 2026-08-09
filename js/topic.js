@@ -95,6 +95,7 @@ function renderDays(topicId, topicMeta, days) {
 
 async function init() {
   initSnowfall();
+  document.querySelector(".topic-back").innerHTML = ICONS.arrowLeft;
 
   const topicId = getTopicIdFromQuery();
   enableBackKey(() => {

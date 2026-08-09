@@ -85,7 +85,7 @@ function renderViewer(root, { topicId, topicMeta, days, day }) {
   const backLink = document.createElement("a");
   backLink.className = "viewer-icon-button viewer-back";
   backLink.href = `topic.html?topic=${encodeURIComponent(topicId)}`;
-  backLink.textContent = "←";
+  backLink.innerHTML = ICONS.arrowLeft;
   backLink.setAttribute("aria-label", "Danh sách");
   backLink.title = "Danh sách";
 
@@ -125,9 +125,17 @@ function renderViewer(root, { topicId, topicMeta, days, day }) {
   const fullscreenButton = document.createElement("button");
   fullscreenButton.type = "button";
   fullscreenButton.className = "viewer-icon-button viewer-fullscreen";
-  fullscreenButton.textContent = "⛶";
-  fullscreenButton.setAttribute("aria-label", "Toàn màn hình");
-  fullscreenButton.title = "Toàn màn hình";
+
+  function renderFullscreenState() {
+    const isFullscreen = Boolean(document.fullscreenElement);
+    fullscreenButton.innerHTML = isFullscreen ? ICONS.minimize : ICONS.maximize;
+    const label = isFullscreen ? "Thu nhỏ" : "Toàn màn hình";
+    fullscreenButton.setAttribute("aria-label", label);
+    fullscreenButton.title = label;
+  }
+
+  renderFullscreenState();
+  document.addEventListener("fullscreenchange", renderFullscreenState);
   fullscreenButton.addEventListener("click", () => {
     if (document.fullscreenElement) {
       document.exitFullscreen();
