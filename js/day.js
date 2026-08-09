@@ -1,4 +1,6 @@
 import { toDirectImageUrl } from "./drive-url.js";
+import { isDayDone, toggleDayDone } from "./progress.js";
+import { ICONS } from "./icons.js";
 
 function getParams() {
   const params = new URLSearchParams(window.location.search);
@@ -91,7 +93,24 @@ function renderViewer(root, { topicId, topicMeta, days, day }) {
     }
   });
 
-  viewer.append(backLink, dateLabel, info, imageWrap, fullscreenButton);
+  const doneButton = document.createElement("button");
+  doneButton.type = "button";
+  doneButton.className = "viewer-icon-button viewer-done-toggle";
+
+  function renderDoneState(isDone) {
+    doneButton.classList.toggle("is-done", isDone);
+    doneButton.innerHTML = isDone ? ICONS.circleCheck : ICONS.circle;
+    const label = isDone ? "Đã hoàn thành" : "Đánh dấu hoàn thành";
+    doneButton.setAttribute("aria-label", label);
+    doneButton.title = label;
+  }
+
+  renderDoneState(isDayDone(topicId, day));
+  doneButton.addEventListener("click", () => {
+    renderDoneState(toggleDayDone(topicId, day));
+  });
+
+  viewer.append(backLink, dateLabel, info, imageWrap, fullscreenButton, doneButton);
   root.append(viewer);
 }
 

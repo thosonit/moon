@@ -274,6 +274,34 @@ main {
   color: var(--color-accent-strong);
 }
 
+.day-list-item.is-done a {
+  background: color-mix(in srgb, var(--color-success) 18%, var(--color-surface));
+  border-color: var(--color-success);
+}
+
+.day-list-done-badge {
+  position: absolute;
+  top: 0.4rem;
+  right: 0.4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 50%;
+  background: var(--color-success);
+  color: var(--color-surface);
+}
+
+.day-list-done-badge svg {
+  width: 0.9rem;
+  height: 0.9rem;
+}
+
+.day-list-item {
+  position: relative;
+}
+
 /* Viewer (day.html) */
 .viewer {
   position: fixed;
@@ -335,9 +363,25 @@ main {
   transform: scale(0.92);
 }
 
+.viewer-icon-button svg {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
 .viewer-fullscreen {
   bottom: var(--space-sm);
   right: var(--space-sm);
+}
+
+.viewer-done-toggle {
+  bottom: var(--space-sm);
+  left: var(--space-sm);
+}
+
+.viewer-done-toggle.is-done {
+  color: var(--color-success);
+  border-color: var(--color-success);
+  opacity: 1;
 }
 
 .viewer-info {

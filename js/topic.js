@@ -1,4 +1,6 @@
 import { initSnowfall } from "./snowfall.js";
+import { getCompletedDays } from "./progress.js";
+import { ICONS } from "./icons.js";
 
 function getTopicIdFromQuery() {
   const params = new URLSearchParams(window.location.search);
@@ -34,9 +36,13 @@ function renderDays(topicId, topicMeta, days) {
   const list = document.getElementById("day-list");
   list.innerHTML = "";
 
+  const completedDays = getCompletedDays(topicId);
+
   for (const entry of days) {
     const item = document.createElement("li");
     item.className = "day-list-item";
+    const isDone = completedDays.has(entry.day);
+    item.classList.toggle("is-done", isDone);
 
     const link = document.createElement("a");
     link.href = `day.html?topic=${encodeURIComponent(topicId)}&day=${entry.day}`;
@@ -50,6 +56,15 @@ function renderDays(topicId, topicMeta, days) {
     title.textContent = entry.title || `Bài ${entry.day}`;
 
     link.append(subtitle, title);
+
+    if (isDone) {
+      const badge = document.createElement("span");
+      badge.className = "day-list-done-badge";
+      badge.innerHTML = ICONS.check;
+      badge.setAttribute("aria-label", "Đã hoàn thành");
+      link.append(badge);
+    }
+
     item.append(link);
     list.append(item);
   }
