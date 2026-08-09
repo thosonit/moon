@@ -1,4 +1,5 @@
 import { initSnowfall } from "./snowfall.js";
+import { enableGridNav } from "./tv-nav.js";
 
 const TOPIC_MASCOTS = ["🐰", "🐻", "🐱", "🐧", "🦊", "🐼"];
 
@@ -33,6 +34,8 @@ function renderTopics(topics) {
     card.append(mascot, title, meta);
     grid.append(card);
   });
+
+  enableGridNav(grid, ".topic-card");
 }
 
 initSnowfall();

@@ -1,6 +1,7 @@
 import { initSnowfall } from "./snowfall.js";
 import { getCompletedDays } from "./progress.js";
 import { ICONS } from "./icons.js";
+import { enableGridNav, enableBackKey } from "./tv-nav.js";
 
 function getTopicIdFromQuery() {
   const params = new URLSearchParams(window.location.search);
@@ -81,12 +82,18 @@ function renderDays(topicId, topicMeta, days) {
       block: "center",
     });
   }
+
+  enableGridNav(list, "a");
 }
 
 async function init() {
   initSnowfall();
 
   const topicId = getTopicIdFromQuery();
+  enableBackKey(() => {
+    window.location.href = "index.html";
+  });
+
   if (!topicId) {
     renderNotFound();
     return;

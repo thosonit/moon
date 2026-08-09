@@ -1,6 +1,7 @@
 import { toDirectImageUrl } from "./drive-url.js";
 import { isDayDone, toggleDayDone } from "./progress.js";
 import { ICONS } from "./icons.js";
+import { enableBackKey } from "./tv-nav.js";
 
 function getParams() {
   const params = new URLSearchParams(window.location.search);
@@ -28,6 +29,48 @@ async function loadDays(topicId) {
 
 function renderNotFound(root) {
   root.innerHTML = `<p class="not-found">Không tìm thấy nội dung. <a href="index.html">Về trang chủ</a></p>`;
+}
+
+function enableDayNav({ topicId, topicMeta, day, controls }) {
+  let controlIndex = 0;
+
+  function focusControl(index) {
+    controlIndex = (index + controls.length) % controls.length;
+    controls.forEach((control, i) => control.classList.toggle("tv-focused", i === controlIndex));
+    controls[controlIndex].focus();
+  }
+
+  function goToDay(targetDay) {
+    if (targetDay < 1 || targetDay > topicMeta.totalDays) return;
+    window.location.href = `day.html?topic=${encodeURIComponent(topicId)}&day=${targetDay}`;
+  }
+
+  document.addEventListener("keydown", (event) => {
+    switch (event.key) {
+      case "ArrowLeft":
+        event.preventDefault();
+        goToDay(day - 1);
+        break;
+      case "ArrowRight":
+        event.preventDefault();
+        goToDay(day + 1);
+        break;
+      case "ArrowUp":
+        event.preventDefault();
+        focusControl(controlIndex - 1);
+        break;
+      case "ArrowDown":
+        event.preventDefault();
+        focusControl(controlIndex + 1);
+        break;
+      default:
+        break;
+    }
+  });
+
+  enableBackKey(() => {
+    window.location.href = `topic.html?topic=${encodeURIComponent(topicId)}`;
+  });
 }
 
 function renderViewer(root, { topicId, topicMeta, days, day }) {
@@ -112,6 +155,8 @@ function renderViewer(root, { topicId, topicMeta, days, day }) {
 
   viewer.append(backLink, dateLabel, info, imageWrap, fullscreenButton, doneButton);
   root.append(viewer);
+
+  enableDayNav({ topicId, topicMeta, day, controls: [backLink, doneButton, fullscreenButton] });
 }
 
 async function init() {

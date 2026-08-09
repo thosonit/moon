@@ -191,7 +191,8 @@ main {
 }
 
 .topic-card:hover,
-.topic-card:focus-visible {
+.topic-card:focus-visible,
+.topic-card.tv-focused {
   transform: translateY(-0.35rem) scale(1.02);
   border-color: var(--color-accent);
   box-shadow: 0 12px 28px rgba(248, 134, 154, 0.3);
@@ -252,7 +253,8 @@ main {
 }
 
 .day-list-item a:hover,
-.day-list-item a:focus-visible {
+.day-list-item a:focus-visible,
+.day-list-item a.tv-focused {
   transform: translateY(-0.2rem) scale(1.03);
   border-color: var(--color-accent);
   box-shadow: 0 8px 20px rgba(248, 134, 154, 0.25);
@@ -352,7 +354,8 @@ main {
 }
 
 .viewer-icon-button:hover,
-.viewer-icon-button:focus-visible {
+.viewer-icon-button:focus-visible,
+.viewer-icon-button.tv-focused {
   opacity: 1;
   border-color: var(--color-accent);
   transform: scale(1.05);
