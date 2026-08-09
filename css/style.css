@@ -382,49 +382,6 @@ main {
   text-align: center;
 }
 
-.viewer-zoom-controls {
-  position: fixed;
-  bottom: var(--space-sm);
-  left: var(--space-sm);
-  z-index: 10;
-  display: flex;
-  gap: var(--space-xs, 0.5rem);
-}
-
-.viewer-zoom-controls .viewer-icon-button {
-  position: static;
-}
-
-.viewer-zoom-label {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-width: 3.25rem;
-  padding: 0 var(--space-sm);
-  font-size: 0.875rem;
-  font-variant-numeric: tabular-nums;
-  background: var(--color-surface);
-  border: 2px solid var(--color-border);
-  border-radius: 999px;
-  box-shadow: 0 4px 14px rgba(248, 134, 154, 0.25);
-  color: var(--color-accent-strong);
-  opacity: 0.4;
-  transition: opacity 150ms ease;
-}
-
-.viewer-zoom-controls:hover .viewer-zoom-label {
-  opacity: 1;
-}
-
-.viewer-image-wrap.is-zoomed {
-  overflow: auto;
-}
-
-.viewer-image-wrap .viewer-image {
-  transition: transform 150ms ease;
-  transform-origin: center center;
-}
-
 .placeholder,
 .not-found {
   color: var(--color-text-muted);
