@@ -39,7 +39,9 @@ function renderDays(topicId, topicMeta, days) {
 
   const completedDays = getCompletedDays(topicId);
   const latestDoneDay = completedDays.size > 0 ? Math.max(...completedDays) : null;
+  const nextDay = latestDoneDay !== null ? latestDoneDay + 1 : null;
   let latestDoneItem = null;
+  let nextLink = null;
 
   for (const entry of days) {
     const item = document.createElement("li");
@@ -52,6 +54,9 @@ function renderDays(topicId, topicMeta, days) {
 
     const link = document.createElement("a");
     link.href = `day.html?topic=${encodeURIComponent(topicId)}&day=${entry.day}`;
+    if (entry.day === nextDay) {
+      nextLink = link;
+    }
 
     const subtitle = document.createElement("span");
     subtitle.className = "day-list-subtitle";
@@ -83,7 +88,9 @@ function renderDays(topicId, topicMeta, days) {
     });
   }
 
-  enableGridNav(list, "a");
+  const links = Array.from(list.querySelectorAll("a"));
+  const initialIndex = nextLink ? links.indexOf(nextLink) : 0;
+  enableGridNav(list, "a", { initialIndex });
 }
 
 async function init() {

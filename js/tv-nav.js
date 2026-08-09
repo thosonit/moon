@@ -24,8 +24,9 @@ function groupIntoRows(items) {
  * using a roving tabindex and a `.tv-focused` class for visible focus.
  * @param {HTMLElement} container
  * @param {string} itemSelector
+ * @param {{ initialIndex?: number }} [options]
  */
-export function enableGridNav(container, itemSelector) {
+export function enableGridNav(container, itemSelector, options = {}) {
   let currentIndex = 0;
 
   function getItems() {
@@ -92,7 +93,7 @@ export function enableGridNav(container, itemSelector) {
     true,
   );
 
-  setFocus(0, getItems());
+  setFocus(options.initialIndex ?? 0, getItems());
 }
 
 /**
