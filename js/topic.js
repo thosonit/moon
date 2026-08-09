@@ -37,12 +37,17 @@ function renderDays(topicId, topicMeta, days) {
   list.innerHTML = "";
 
   const completedDays = getCompletedDays(topicId);
+  const latestDoneDay = completedDays.size > 0 ? Math.max(...completedDays) : null;
+  let latestDoneItem = null;
 
   for (const entry of days) {
     const item = document.createElement("li");
     item.className = "day-list-item";
     const isDone = completedDays.has(entry.day);
     item.classList.toggle("is-done", isDone);
+    if (entry.day === latestDoneDay) {
+      latestDoneItem = item;
+    }
 
     const link = document.createElement("a");
     link.href = `day.html?topic=${encodeURIComponent(topicId)}&day=${entry.day}`;
@@ -67,6 +72,14 @@ function renderDays(topicId, topicMeta, days) {
 
     item.append(link);
     list.append(item);
+  }
+
+  if (latestDoneItem) {
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    latestDoneItem.scrollIntoView({
+      behavior: prefersReducedMotion ? "auto" : "smooth",
+      block: "center",
+    });
   }
 }
 
