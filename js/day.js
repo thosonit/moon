@@ -44,6 +44,14 @@ function renderViewer(root, { topicId, topicMeta, days, day }) {
   backLink.setAttribute("aria-label", "Danh sách");
   backLink.title = "Danh sách";
 
+  const dateLabel = document.createElement("span");
+  dateLabel.className = "viewer-date";
+  dateLabel.textContent = new Date().toLocaleDateString("en-US", {
+    day: "numeric",
+    month: "short",
+    year: "numeric",
+  });
+
   const imageWrap = document.createElement("div");
   imageWrap.className = "viewer-image-wrap";
 
@@ -75,6 +83,15 @@ function renderViewer(root, { topicId, topicMeta, days, day }) {
     placeholder.textContent = "Chưa có ảnh";
     imageWrap.append(placeholder);
   }
+
+  const info = document.createElement("div");
+  info.className = "viewer-info";
+
+  const infoDay = document.createElement("span");
+  infoDay.className = "viewer-info-day";
+  infoDay.textContent = `${day}`;
+
+  info.append(infoDay);
 
   const fullscreenButton = document.createElement("button");
   fullscreenButton.type = "button";
@@ -121,7 +138,7 @@ function renderViewer(root, { topicId, topicMeta, days, day }) {
 
   zoomControls.append(zoomOutButton, zoomLabel, zoomInButton);
 
-  viewer.append(backLink, imageWrap, fullscreenButton, zoomControls);
+  viewer.append(backLink, dateLabel, info, imageWrap, fullscreenButton, zoomControls);
   root.append(viewer);
 }
 
