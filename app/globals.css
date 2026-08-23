@@ -1,0 +1,63 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  background:
+    radial-gradient(circle at 8% 12%, rgba(245, 220, 152, 0.35), transparent 40%),
+    radial-gradient(circle at 92% 85%, rgba(242, 186, 222, 0.35), transparent 45%),
+    linear-gradient(180deg, #fff0ef, #ffe1e3);
+}
+
+/* Mascot bounce — used by .topic-mascot in components/TopicCard.tsx */
+@keyframes gentle-bounce {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-6px) rotate(-4deg);
+  }
+}
+
+.topic-mascot {
+  animation: gentle-bounce 2.4s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+}
+
+.topic-card:hover .topic-mascot {
+  animation-duration: 0.8s;
+}
+
+/* Snowfall — dynamic per-flake CSS variables set in components/Snowfall.tsx */
+@keyframes snow-fall {
+  0% {
+    transform: translate(0, -10vh) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.7;
+  }
+  90% {
+    opacity: 0.7;
+  }
+  100% {
+    transform: translate(var(--drift, 60px), 110vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+.snowflake {
+  position: absolute;
+  top: -2rem;
+  font-size: var(--flake-size, 1rem);
+  opacity: 0.7;
+  animation: snow-fall var(--fall-duration, 12s) linear infinite;
+  animation-delay: var(--fall-delay, 0s);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .topic-mascot,
+  .snowflake {
+    animation: none !important;
+  }
+}
