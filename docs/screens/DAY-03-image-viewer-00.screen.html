@@ -10,10 +10,100 @@
   href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700&family=Quicksand:wght@500;700&display=swap"
   rel="stylesheet"
 />
-<link rel="stylesheet" href="../../src/moon/css/style.css" />
 <style>
-  /* Prototype-only: keep icon buttons visible without needing real :hover/:focus. */
-  .viewer-icon-button { opacity: 1 !important; }
+  :root {
+    --color-bg: #fff0ef;
+    --color-surface: #fff9f9;
+    --color-text-muted: #826b6a;
+    --color-accent-strong: #db4b71;
+    --color-border: #f2d7d6;
+
+    --font-heading: "Baloo 2", "Quicksand", -apple-system, sans-serif;
+    --font-body: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+
+    --space-section: clamp(2.5rem, 2rem + 2.5vw, 6rem);
+    --space-md: clamp(1rem, 0.9rem + 0.5vw, 1.5rem);
+    --space-sm: 0.5rem;
+  }
+
+  * { box-sizing: border-box; }
+
+  body { margin: 0; font-family: var(--font-body); line-height: 1.6; }
+
+  a { color: inherit; }
+
+  .viewer {
+    position: fixed;
+    inset: 0;
+    background: var(--color-bg);
+    display: flex;
+    flex-direction: column;
+  }
+
+  .viewer-image-wrap { flex: 1; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+
+  .placeholder { color: var(--color-text-muted); text-align: center; padding: var(--space-section) var(--space-md); }
+
+  .viewer-back { top: var(--space-sm); left: var(--space-sm); text-decoration: none; }
+
+  .viewer-icon-button {
+    position: fixed;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.75rem;
+    height: 2.75rem;
+    background: var(--color-surface);
+    border: 2px solid var(--color-border);
+    border-radius: 999px;
+    box-shadow: 0 4px 14px rgba(248, 134, 154, 0.25);
+    color: var(--color-accent-strong);
+    /* Prototype-only: idle opacity is 0.4 in production, forced to 1 here so
+       the controls stay visible without relying on :hover/:focus. */
+    opacity: 1;
+  }
+
+  .viewer-icon-button svg { width: 1.25rem; height: 1.25rem; }
+
+  .viewer-fullscreen { bottom: var(--space-sm); right: var(--space-sm); }
+  .viewer-done-toggle { bottom: var(--space-sm); left: var(--space-sm); }
+
+  .viewer-info {
+    position: fixed;
+    top: var(--space-sm);
+    right: var(--space-sm);
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 3.25rem;
+    height: 3.25rem;
+    background: var(--color-surface);
+    border: 2px solid var(--color-border);
+    border-radius: 50%;
+    box-shadow: 0 4px 14px rgba(248, 134, 154, 0.25);
+    color: var(--color-accent-strong);
+    font-variant-numeric: tabular-nums;
+  }
+
+  .viewer-info-day { font-family: var(--font-heading); font-size: 1.5rem; font-weight: 600; line-height: 1; text-align: center; }
+
+  .viewer-date {
+    position: fixed;
+    top: var(--space-sm);
+    left: calc(var(--space-sm) + 2.75rem + 0.5rem);
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    padding: 0.4rem 0.9rem;
+    height: 2.75rem;
+    color: var(--color-accent-strong);
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
+    font-weight: 600;
+    white-space: nowrap;
+  }
 </style>
 </head>
 <body>

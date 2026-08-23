@@ -10,7 +10,143 @@
   href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700&family=Quicksand:wght@500;700&display=swap"
   rel="stylesheet"
 />
-<link rel="stylesheet" href="../../src/moon/css/style.css" />
+<style>
+  :root {
+    --color-bg: #fff0ef;
+    --color-surface: #fff9f9;
+    --color-surface-alt: #ffe1e3;
+    --color-text: #493434;
+    --color-text-muted: #826b6a;
+    --color-accent: #f8869a;
+    --color-accent-strong: #db4b71;
+    --color-success: #93e4a4;
+    --color-border: #f2d7d6;
+
+    --font-heading: "Baloo 2", "Quicksand", -apple-system, sans-serif;
+    --font-body: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+
+    --text-heading: clamp(2.5rem, 1.8rem + 3.5vw, 4.25rem);
+
+    --space-section: clamp(2.5rem, 2rem + 2.5vw, 6rem);
+    --space-md: clamp(1rem, 0.9rem + 0.5vw, 1.5rem);
+    --space-sm: 0.5rem;
+
+    --duration-normal: 220ms;
+    --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    min-height: 100vh;
+    background:
+      radial-gradient(circle at 8% 12%, rgba(245, 220, 152, 0.35), transparent 40%),
+      radial-gradient(circle at 92% 85%, rgba(242, 186, 222, 0.35), transparent 45%),
+      linear-gradient(180deg, var(--color-bg), var(--color-surface-alt));
+    color: var(--color-text);
+    font-family: var(--font-body);
+    line-height: 1.6;
+  }
+
+  header.site-header { position: relative; padding: var(--space-section) var(--space-md) var(--space-md); }
+
+  h1.site-title { font-family: var(--font-heading); font-size: var(--text-heading); margin: 0; letter-spacing: -0.01em; color: var(--color-accent-strong); }
+
+  .topic-header {
+    display: grid;
+    grid-template-columns: 2.75rem 1fr 2.75rem;
+    align-items: center;
+    gap: var(--space-md);
+  }
+  .topic-header .site-title { grid-column: 2; text-align: center; }
+  .topic-back { grid-column: 1; position: static; text-decoration: none; }
+
+  main { padding: 0 var(--space-md) var(--space-section); max-width: 72rem; margin: 0 auto; }
+
+  a { color: inherit; }
+
+  .viewer-icon-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.75rem;
+    height: 2.75rem;
+    background: var(--color-surface);
+    border: 2px solid var(--color-border);
+    border-radius: 999px;
+    box-shadow: 0 4px 14px rgba(248, 134, 154, 0.25);
+    color: var(--color-accent-strong);
+    opacity: 0.4;
+    transition: opacity 150ms ease, transform 150ms ease, border-color 150ms ease;
+  }
+  .viewer-icon-button:hover,
+  .viewer-icon-button:focus-visible,
+  .viewer-icon-button.tv-focused { opacity: 1; border-color: var(--color-accent); transform: scale(1.05); outline: none; }
+  .viewer-icon-button svg { width: 1.25rem; height: 1.25rem; }
+
+  .day-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr));
+    gap: var(--space-sm);
+  }
+
+  .day-list-item { position: relative; }
+
+  .day-list-item a {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    padding: var(--space-sm) var(--space-md);
+    background: var(--color-surface);
+    border: 2px solid var(--color-border);
+    border-radius: 1.25rem;
+    text-align: center;
+    text-decoration: none;
+    color: var(--color-text);
+    box-shadow: 0 4px 14px rgba(248, 134, 154, 0.12);
+    transition: transform var(--duration-normal) var(--ease-out-expo),
+      border-color var(--duration-normal) var(--ease-out-expo),
+      box-shadow var(--duration-normal) var(--ease-out-expo);
+  }
+
+  .day-list-item a:hover,
+  .day-list-item a:focus-visible,
+  .day-list-item a.tv-focused {
+    transform: translateY(-0.2rem) scale(1.03);
+    border-color: var(--color-accent);
+    box-shadow: 0 8px 20px rgba(248, 134, 154, 0.25);
+    outline: none;
+  }
+
+  .day-list-item a:active { transform: scale(0.96); }
+
+  .day-list-subtitle { font-size: 0.75rem; color: var(--color-text-muted); }
+  .day-list-title { font-family: var(--font-heading); font-weight: 600; color: var(--color-accent-strong); }
+
+  .day-list-item.is-done a {
+    background: color-mix(in srgb, var(--color-success) 18%, var(--color-surface));
+    border-color: var(--color-success);
+  }
+
+  .day-list-done-badge {
+    position: absolute;
+    top: 0.4rem;
+    right: 0.4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 50%;
+    background: var(--color-success);
+    color: var(--color-surface);
+  }
+  .day-list-done-badge svg { width: 0.9rem; height: 0.9rem; }
+</style>
 </head>
 <body>
   <header class="site-header topic-header">

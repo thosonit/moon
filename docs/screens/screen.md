@@ -10,4 +10,6 @@ Static HTML prototypes of `moon`'s three real screens, paired with a short doc p
 
 The `-00` suffix is the variant number — bump it (`-01`, `-02`, ...) when proposing an alternate layout for the same screen, keeping `-00` as the baseline that matches production.
 
-Each `.screen.html` prototype loads the real stylesheet (`src/moon/css/style.css`) via relative path, so it always stays visually in sync with the shipped design — it is a static snapshot (no JS, no fetch, no localStorage), not a live copy of the app.
+Each `.screen.html` prototype is fully self-contained — CSS is inlined in its own `<style>` block (a frozen copy of the relevant rules from `src/moon/css/style.css`), with no relative link back into `src/`. This is deliberate: a screen doc must stay readable/renderable on its own even if the source implementation changes, moves, or is refactored later. There is no JS, no fetch, no localStorage — only the visual states called out in each doc.
+
+If the real `src/moon/css/style.css` tokens change, these prototypes will drift and should be refreshed by hand — they are a snapshot, not a live reference.
