@@ -3,3 +3,5 @@ node_modules/
 .next
 src/moon/data/*.pdf
 .worktrees/
+next-env.d.ts
+*.tsbuildinfo
