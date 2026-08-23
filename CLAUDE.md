@@ -32,7 +32,7 @@ vercel.json    # Must stay at repo root; outputDirectory: "src/moon"
 
 ## Running locally
 
-```
+```bash
 npx serve src/moon
 # or
 python3 -m http.server 8000 --directory src/moon

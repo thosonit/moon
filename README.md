@@ -14,7 +14,7 @@ Vanilla HTML/CSS/JS, không framework, không bundler. Dữ liệu chủ đề/b
 
 ## Cấu trúc dự án
 
-```
+```text
 src/moon/     # Toàn bộ mã nguồn website (HTML/CSS/JS/data)
 docs/         # Tài liệu dự án (design system, specs, screens...)
 tests/        # (chưa dùng)
@@ -25,7 +25,7 @@ Xem chi tiết trong [`CLAUDE.md`](./CLAUDE.md).
 
 ## Chạy thử local
 
-```
+```bash
 npx serve src/moon
 # hoặc
 python3 -m http.server 8000 --directory src/moon
