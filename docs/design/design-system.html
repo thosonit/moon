@@ -1,0 +1,1004 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Moon Design System</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link
+  href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700&family=Quicksand:wght@500;700&display=swap"
+  rel="stylesheet"
+/>
+<style>
+  :root {
+    /* Surfaces — pink-tinted canvas, mirrors src/moon/css/style.css */
+    --color-bg: #fff0ef;
+    --color-surface: #fff9f9;
+    --color-surface-alt: #ffe1e3;
+
+    /* Text */
+    --color-text: #493434;
+    --color-text-muted: #826b6a;
+
+    /* Brand + accents */
+    --color-accent: #f8869a;
+    --color-accent-strong: #db4b71;
+    --color-secondary: #f2bade;
+    --color-tertiary: #f5dc98;
+    --color-success: #93e4a4;
+
+    --color-border: #f2d7d6;
+
+    --font-heading: "Baloo 2", "Quicksand", -apple-system, sans-serif;
+    --font-body: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    --font-mono: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+
+    --text-base: clamp(1.05rem, 1rem + 0.3vw, 1.2rem);
+    --text-heading: clamp(2.5rem, 1.8rem + 3.5vw, 4.25rem);
+    --text-subheading: clamp(1.25rem, 1.1rem + 0.8vw, 1.75rem);
+
+    --space-section: clamp(2.5rem, 2rem + 2.5vw, 6rem);
+    --space-md: clamp(1rem, 0.9rem + 0.5vw, 1.5rem);
+    --space-sm: 0.5rem;
+
+    --radius-pill: 999px;
+    --radius-card: 1.75rem;
+    --radius-list: 1.25rem;
+
+    --duration-normal: 220ms;
+    --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    min-height: 100vh;
+    background:
+      radial-gradient(circle at 8% 12%, rgba(245, 220, 152, 0.35), transparent 40%),
+      radial-gradient(circle at 92% 8%, rgba(242, 186, 222, 0.35), transparent 45%),
+      linear-gradient(180deg, var(--color-bg), var(--color-surface-alt) 140%);
+    color: var(--color-text);
+    font-family: var(--font-body);
+    font-size: var(--text-base);
+    line-height: 1.6;
+  }
+
+  a { color: inherit; }
+
+  img, svg { display: block; }
+
+  /* ---------- Nav ---------- */
+  .nav {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    gap: var(--space-md);
+    padding: 0.9rem var(--space-md);
+    background: color-mix(in srgb, var(--color-surface) 88%, transparent);
+    backdrop-filter: blur(10px);
+    border-bottom: 2px solid var(--color-border);
+  }
+
+  .nav-left {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: var(--font-heading);
+    font-weight: 700;
+    color: var(--color-accent-strong);
+    font-size: 1.15rem;
+  }
+
+  .nav-left .dot {
+    display: inline-flex;
+    width: 1.6rem;
+    height: 1.6rem;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    animation: gentle-bounce 2.4s var(--ease-out-expo) infinite;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 1.5rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--color-text-muted);
+  }
+
+  .nav-links a {
+    text-decoration: none;
+    transition: color var(--duration-normal) ease;
+  }
+
+  .nav-links a:hover { color: var(--color-accent-strong); }
+
+  .nav-cta {
+    justify-self: end;
+    border: none;
+    background: var(--color-accent);
+    color: #fff;
+    font-family: var(--font-body);
+    font-weight: 700;
+    padding: 0.55rem 1.2rem;
+    border-radius: var(--radius-pill);
+    font-size: 0.85rem;
+    cursor: default;
+  }
+
+  @media (max-width: 720px) {
+    .nav-links { display: none; }
+  }
+
+  /* ---------- Hero ---------- */
+  .hero {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    align-items: center;
+    gap: var(--space-section);
+    padding: var(--space-section) var(--space-md);
+    max-width: 76rem;
+    margin: 0 auto;
+    overflow: hidden;
+  }
+
+  .hero-kicker {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    background: var(--color-surface);
+    border: 2px solid var(--color-border);
+    color: var(--color-accent-strong);
+    font-weight: 700;
+    font-size: 0.8rem;
+    padding: 0.35rem 0.9rem;
+    border-radius: var(--radius-pill);
+    margin-bottom: 1rem;
+  }
+
+  .hero h1 {
+    font-family: var(--font-heading);
+    font-size: clamp(2.4rem, 2rem + 2vw, 3.4rem);
+    line-height: 1.1;
+    margin: 0 0 1rem;
+    color: var(--color-accent-strong);
+    letter-spacing: -0.01em;
+  }
+
+  .hero p {
+    color: var(--color-text-muted);
+    font-size: 1.05rem;
+    max-width: 34rem;
+    margin: 0 0 2rem;
+  }
+
+  .hero-ctas { display: flex; gap: 0.9rem; flex-wrap: wrap; }
+
+  .hero-art {
+    position: relative;
+    height: 20rem;
+  }
+
+  .hero-card {
+    position: absolute;
+    width: 11rem;
+    padding: var(--space-md);
+    background: var(--color-surface);
+    border: 2px solid var(--color-border);
+    border-radius: var(--radius-card);
+    box-shadow: 0 12px 28px rgba(248, 134, 154, 0.28);
+  }
+
+  .hero-card.card-a { top: 0; left: 2rem; z-index: 2; }
+  .hero-card.card-b {
+    top: 5.5rem;
+    left: 8.5rem;
+    z-index: 1;
+    transform: rotate(4deg);
+    background: var(--color-surface-alt);
+  }
+
+  .hero-card .mascot { font-size: 2rem; animation: gentle-bounce 2.4s var(--ease-out-expo) infinite; }
+  .hero-card h3 { font-family: var(--font-heading); font-size: 1.05rem; margin: 0.5rem 0 0.2rem; color: var(--color-accent-strong); }
+  .hero-card p { font-size: 0.8rem; margin: 0; color: var(--color-text-muted); }
+
+  .hero-sparkle {
+    position: absolute;
+    color: var(--color-secondary);
+    animation: twinkle 3s var(--ease-out-expo) infinite;
+  }
+
+  .hero-sparkle:nth-of-type(1) { top: 1rem; right: 1rem; font-size: 1.4rem; animation-delay: 0s; }
+  .hero-sparkle:nth-of-type(2) { bottom: 2rem; right: 3.5rem; font-size: 1rem; color: var(--color-tertiary); animation-delay: 0.6s; }
+  .hero-sparkle:nth-of-type(3) { top: 8rem; right: -0.5rem; font-size: 0.85rem; animation-delay: 1.2s; }
+
+  @media (max-width: 1024px) {
+    .hero { grid-template-columns: 1fr; text-align: center; padding-top: var(--space-md); }
+    .hero p { margin-inline: auto; }
+    .hero-ctas { justify-content: center; }
+    .hero-art { display: none; }
+  }
+
+  /* ---------- Buttons (shared) ---------- */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    border: none;
+    font-family: var(--font-body);
+    font-weight: 700;
+    font-size: 0.95rem;
+    padding: 0.75rem 1.5rem;
+    border-radius: var(--radius-pill);
+    cursor: default;
+    transition: transform var(--duration-normal) var(--ease-out-expo),
+      box-shadow var(--duration-normal) var(--ease-out-expo);
+  }
+
+  .btn-primary {
+    background: var(--color-accent);
+    color: #fff;
+    box-shadow: 0 8px 20px rgba(248, 134, 154, 0.4);
+  }
+  .btn-primary:hover { transform: scale(1.05); }
+  .btn-primary:active { transform: scale(0.95); }
+
+  .btn-primary.is-active {
+    background: var(--color-accent-strong);
+    box-shadow: 0 8px 20px rgba(219, 75, 113, 0.45);
+  }
+
+  .btn-secondary {
+    background: var(--color-surface);
+    color: var(--color-accent-strong);
+    border: 2px solid var(--color-border);
+  }
+  .btn-secondary:hover { border-color: var(--color-accent); transform: scale(1.05); }
+
+  /* ---------- Section header ---------- */
+  section { padding: var(--space-section) var(--space-md); max-width: 76rem; margin: 0 auto; }
+  section + section { border-top: 2px dashed var(--color-border); }
+
+  .section-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--color-surface);
+    border: 2px solid var(--color-border);
+    color: var(--color-accent-strong);
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 0.85rem;
+    padding: 0.3rem 1rem;
+    border-radius: var(--radius-pill);
+    margin-bottom: 1rem;
+  }
+
+  .section-heading {
+    font-family: var(--font-heading);
+    font-size: clamp(1.6rem, 1.4rem + 1vw, 2.1rem);
+    color: var(--color-text);
+    margin: 0 0 0.6rem;
+  }
+
+  .section-intro {
+    color: var(--color-text-muted);
+    max-width: 42rem;
+    margin: 0 0 2.5rem;
+  }
+
+  /* ---------- 01 Colors ---------- */
+  .palette-group { margin-bottom: 2rem; }
+  .palette-group h3 {
+    font-family: var(--font-heading);
+    font-size: 1rem;
+    color: var(--color-text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin: 0 0 1rem;
+  }
+  .palette-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(11rem, 1fr));
+    gap: 1rem;
+  }
+  .swatch {
+    border: 2px solid var(--color-border);
+    border-radius: 1.25rem;
+    overflow: hidden;
+    background: var(--color-surface);
+  }
+  .swatch-color { height: 4.5rem; }
+  .swatch-meta { padding: 0.7rem 0.9rem; }
+  .swatch-name { font-weight: 700; font-size: 0.9rem; }
+  .swatch-hex { font-family: var(--font-mono); font-size: 0.75rem; color: var(--color-text-muted); }
+  .swatch-role { font-size: 0.75rem; color: var(--color-text-muted); margin-top: 0.2rem; }
+
+  /* ---------- 02 Typography ---------- */
+  .type-row {
+    display: grid;
+    grid-template-columns: 12rem 1fr;
+    gap: var(--space-md);
+    padding: 1.5rem 0;
+    border-top: 2px dashed var(--color-border);
+    align-items: baseline;
+  }
+  .type-row:first-of-type { border-top: none; }
+  .type-meta { color: var(--color-text-muted); font-size: 0.85rem; line-height: 1.7; }
+  .type-meta strong { display: block; color: var(--color-text); font-size: 0.95rem; margin-bottom: 0.2rem; }
+  .type-sample.font-heading { font-family: var(--font-heading); color: var(--color-accent-strong); }
+  .type-sample.font-body { font-family: var(--font-body); }
+
+  /* ---------- 03 Buttons & icons ---------- */
+  .button-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(11rem, 1fr));
+    gap: 1.25rem;
+  }
+  .button-cell {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1.5rem 1rem;
+    background: var(--color-surface);
+    border: 2px solid var(--color-border);
+    border-radius: 1.25rem;
+  }
+  .button-label { font-size: 0.75rem; color: var(--color-text-muted); font-family: var(--font-mono); }
+
+  .icon-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.75rem;
+    height: 2.75rem;
+    background: var(--color-surface);
+    border: 2px solid var(--color-border);
+    border-radius: var(--radius-pill);
+    color: var(--color-accent-strong);
+    box-shadow: 0 4px 14px rgba(248, 134, 154, 0.25);
+    opacity: 0.4;
+  }
+  .icon-btn.is-visible,
+  .icon-btn:hover { opacity: 1; border-color: var(--color-accent); }
+  .icon-btn.is-done { color: var(--color-success); border-color: var(--color-success); opacity: 1; }
+  .icon-btn svg { width: 1.25rem; height: 1.25rem; stroke-width: 2; }
+
+  /* ---------- 04 Cards & containers ---------- */
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+    gap: 1.25rem;
+  }
+
+  .topic-card-demo {
+    position: relative;
+    padding: var(--space-md);
+    background: var(--color-surface);
+    border: 2px solid var(--color-border);
+    border-radius: var(--radius-card);
+    box-shadow: 0 8px 24px rgba(248, 134, 154, 0.18);
+    transition: transform var(--duration-normal) var(--ease-out-expo), box-shadow var(--duration-normal) var(--ease-out-expo);
+  }
+  .topic-card-demo:hover {
+    transform: translateY(-0.35rem) scale(1.02);
+    border-color: var(--color-accent);
+    box-shadow: 0 12px 28px rgba(248, 134, 154, 0.3);
+  }
+  .topic-card-demo .mascot { font-size: 2rem; display: inline-block; margin-bottom: var(--space-sm); animation: gentle-bounce 2.4s var(--ease-out-expo) infinite; }
+  .topic-card-demo h3 { font-family: var(--font-heading); font-size: var(--text-subheading); color: var(--color-accent-strong); margin: 0 0 0.4rem; }
+  .topic-card-demo p { color: var(--color-text-muted); margin: 0; font-size: 0.9rem; }
+
+  .day-item-demo {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    padding: var(--space-sm) var(--space-md);
+    background: var(--color-surface);
+    border: 2px solid var(--color-border);
+    border-radius: var(--radius-list);
+    text-align: center;
+    box-shadow: 0 4px 14px rgba(248, 134, 154, 0.12);
+  }
+  .day-item-demo.is-done {
+    background: color-mix(in srgb, var(--color-success) 18%, var(--color-surface));
+    border-color: var(--color-success);
+  }
+  .day-item-demo .day-title { font-family: var(--font-heading); font-weight: 600; color: var(--color-accent-strong); }
+  .day-item-demo .day-sub { font-size: 0.75rem; color: var(--color-text-muted); }
+  .day-item-demo .done-badge {
+    position: absolute; top: 0.4rem; right: 0.4rem;
+    width: 1.5rem; height: 1.5rem; border-radius: 50%;
+    background: var(--color-success); color: var(--color-surface);
+    display: flex; align-items: center; justify-content: center;
+  }
+  .day-item-demo .done-badge svg { width: 0.9rem; height: 0.9rem; }
+
+  .day-grid-demo {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(9rem, 1fr));
+    gap: 0.75rem;
+    margin-top: 1.25rem;
+  }
+
+  /* ---------- 05 Motion & mascots ---------- */
+  .motion-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(13rem, 1fr));
+    gap: 1.25rem;
+  }
+  .motion-cell {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1.75rem 1rem;
+    background: var(--color-surface);
+    border: 2px solid var(--color-border);
+    border-radius: 1.25rem;
+    text-align: center;
+  }
+  .motion-cell .stage { font-size: 2.2rem; height: 3rem; display: flex; align-items: center; }
+  .motion-cell .motion-name { font-family: var(--font-mono); font-size: 0.75rem; color: var(--color-text-muted); }
+  .motion-cell .motion-desc { font-size: 0.8rem; color: var(--color-text-muted); }
+
+  .mv-bounce { animation: gentle-bounce 2.4s var(--ease-out-expo) infinite; }
+  .mv-twinkle { animation: twinkle 3s var(--ease-out-expo) infinite; color: var(--color-secondary); }
+  .mv-snow {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+  }
+  .mv-snow span {
+    position: absolute;
+    top: -1.5rem;
+    animation: snow-fall 4s linear infinite;
+    color: var(--color-secondary);
+  }
+  .mv-snow span:nth-child(2) { left: 40%; animation-delay: 1.3s; color: var(--color-tertiary); }
+  .mv-snow span:nth-child(3) { left: 75%; animation-delay: 2.4s; }
+
+  @keyframes gentle-bounce {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-6px) rotate(-4deg); }
+  }
+  @keyframes twinkle {
+    0%, 100% { opacity: 0.5; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.15); }
+  }
+  @keyframes snow-fall {
+    0% { transform: translateY(-1.5rem); opacity: 0; }
+    10% { opacity: 0.8; }
+    90% { opacity: 0.8; }
+    100% { transform: translateY(3.5rem); opacity: 0; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .mv-bounce, .mv-twinkle, .mv-snow span,
+    .topic-card-demo .mascot, .nav-left .dot { animation: none !important; }
+  }
+
+  /* ---------- 06 Spacing ---------- */
+  .spacing-row { display: flex; align-items: center; gap: 1.25rem; padding: 0.6rem 0; }
+  .spacing-label { width: 10rem; font-family: var(--font-mono); font-size: 0.8rem; color: var(--color-text-muted); flex-shrink: 0; }
+  .spacing-bar { height: 1rem; background: var(--color-accent); border-radius: var(--radius-pill); }
+
+  /* ---------- 07 Radius ---------- */
+  .radius-row { display: flex; flex-wrap: wrap; gap: 1.5rem; }
+  .radius-block { display: flex; flex-direction: column; align-items: center; gap: 0.6rem; }
+  .radius-swatch { width: 5rem; height: 5rem; background: var(--color-surface-alt); border: 2px solid var(--color-accent); }
+  .radius-name { font-family: var(--font-mono); font-size: 0.75rem; color: var(--color-text-muted); }
+
+  /* ---------- 08 Elevation ---------- */
+  .elevation-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(13rem, 1fr)); gap: 1.5rem; }
+  .elevation-card {
+    padding: 1.5rem;
+    background: var(--color-surface);
+    border-radius: 1.25rem;
+    text-align: center;
+  }
+  .elevation-card .elevation-name { font-weight: 700; margin-bottom: 0.3rem; }
+  .elevation-card .elevation-detail { font-family: var(--font-mono); font-size: 0.7rem; color: var(--color-text-muted); }
+  .elevation-flat { border: 2px dashed var(--color-border); box-shadow: none; }
+  .elevation-list { border: 2px solid var(--color-border); box-shadow: 0 4px 14px rgba(248, 134, 154, 0.12); }
+  .elevation-topic { border: 2px solid var(--color-border); box-shadow: 0 8px 24px rgba(248, 134, 154, 0.18); }
+  .elevation-hover { border: 2px solid var(--color-accent); box-shadow: 0 12px 28px rgba(248, 134, 154, 0.3); }
+
+  /* ---------- 09 Responsive ---------- */
+  .responsive-table { width: 100%; border-collapse: collapse; margin-bottom: 2.5rem; font-size: 0.9rem; }
+  .responsive-table th, .responsive-table td {
+    text-align: left;
+    padding: 0.75rem 1rem;
+    border-bottom: 2px dashed var(--color-border);
+  }
+  .responsive-table th { color: var(--color-text-muted); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.04em; }
+
+  .device-ladder { display: flex; align-items: flex-end; gap: 1.5rem; }
+  .device-bar { flex: 1; }
+  .device-bar .bar { background: var(--color-accent); border-radius: 0.5rem 0.5rem 0 0; }
+  .device-bar .bar-label { text-align: center; font-size: 0.75rem; color: var(--color-text-muted); margin-top: 0.5rem; }
+
+  .responsive-sub { color: var(--color-text-muted); max-width: 42rem; }
+
+  /* ---------- Table shared ---------- */
+  table { width: 100%; }
+
+  @media (max-width: 1024px) {
+    .palette-grid, .button-grid, .card-grid, .motion-grid, .elevation-grid { grid-template-columns: repeat(2, 1fr); }
+    .type-row { grid-template-columns: 1fr; gap: 0.5rem; }
+  }
+  @media (max-width: 720px) {
+    .palette-grid, .button-grid, .card-grid, .motion-grid, .elevation-grid { grid-template-columns: 1fr; }
+    .device-ladder { flex-wrap: wrap; }
+    section { padding: var(--space-md) 1rem; }
+    .hero { padding: var(--space-md) 1rem; }
+  }
+
+  /* ---------- Footer ---------- */
+  footer {
+    padding: var(--space-md);
+    text-align: center;
+    color: var(--color-text-muted);
+    font-size: 0.85rem;
+    border-top: 2px solid var(--color-border);
+  }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-left"><span class="dot" aria-hidden="true">🌙</span> Moon Design System</div>
+  <ul class="nav-links">
+    <li><a href="#colors">Colors</a></li>
+    <li><a href="#typography">Typography</a></li>
+    <li><a href="#buttons">Buttons</a></li>
+    <li><a href="#cards">Cards</a></li>
+    <li><a href="#motion">Motion</a></li>
+    <li><a href="#responsive">Responsive</a></li>
+  </ul>
+  <button class="nav-cta" type="button">Lớp học của Moon</button>
+</nav>
+
+<div class="hero">
+  <div>
+    <span class="hero-kicker">🌸 Kawaii sticker book</span>
+    <h1>Soft pink, bouncy mascots, big rounded shapes.</h1>
+    <p>
+      Moon's design system is built for a 5-year-old browsing daily lesson pages —
+      every token below traces back to <code>src/moon/css/style.css</code> and
+      <code>docs/design/DESIGN.md</code>, so any new screen stays visually consistent
+      with the app that already ships.
+    </p>
+    <div class="hero-ctas">
+      <button class="btn btn-primary" type="button">Xem bài học</button>
+      <button class="btn btn-secondary" type="button">Về trang chủ</button>
+    </div>
+  </div>
+  <div class="hero-art" aria-hidden="true">
+    <span class="hero-sparkle">✨</span>
+    <span class="hero-sparkle">⭐</span>
+    <span class="hero-sparkle">💫</span>
+    <div class="hero-card card-a">
+      <span class="mascot">🐰</span>
+      <h3>Bảng chữ cái</h3>
+      <p>12 bài · Bài 4</p>
+    </div>
+    <div class="hero-card card-b">
+      <span class="mascot">🐻</span>
+      <h3>Số học vui</h3>
+      <p>8 bài · Bài 2</p>
+    </div>
+  </div>
+</div>
+
+<section id="colors">
+  <div class="section-label">🎨 Colors</div>
+  <h2 class="section-heading">A pink-tinted canvas, never flat white</h2>
+  <p class="section-intro">
+    Every surface gradients from <code>--color-bg</code> into <code>--color-surface-alt</code> —
+    a flat single tone reads as a generic template. Bubblegum pink is the only dominant accent;
+    lilac and butter-yellow stay reserved for small reward moments so they never compete with it.
+  </p>
+
+  <div class="palette-group">
+    <h3>Brand &amp; Accent</h3>
+    <div class="palette-grid">
+      <div class="swatch">
+        <div class="swatch-color" style="background: var(--color-accent);"></div>
+        <div class="swatch-meta">
+          <div class="swatch-name">Accent</div>
+          <div class="swatch-hex">--color-accent · #f8869a</div>
+          <div class="swatch-role">Titles, primary buttons, active borders</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background: var(--color-accent-strong);"></div>
+        <div class="swatch-meta">
+          <div class="swatch-name">Accent Strong</div>
+          <div class="swatch-hex">--color-accent-strong · #db4b71</div>
+          <div class="swatch-role">Headline text, hover/press state</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background: var(--color-secondary);"></div>
+        <div class="swatch-meta">
+          <div class="swatch-name">Secondary</div>
+          <div class="swatch-hex">--color-secondary · #f2bade</div>
+          <div class="swatch-role">Decorative only — snowflakes, badges</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background: var(--color-tertiary);"></div>
+        <div class="swatch-meta">
+          <div class="swatch-name">Tertiary</div>
+          <div class="swatch-hex">--color-tertiary · #f5dc98</div>
+          <div class="swatch-role">Sunshine accent for reward highlights</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background: var(--color-success);"></div>
+        <div class="swatch-meta">
+          <div class="swatch-name">Success</div>
+          <div class="swatch-hex">--color-success · #93e4a4</div>
+          <div class="swatch-role">Completed-lesson state, star badge</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="palette-group">
+    <h3>Surface</h3>
+    <div class="palette-grid">
+      <div class="swatch">
+        <div class="swatch-color" style="background: var(--color-bg);"></div>
+        <div class="swatch-meta">
+          <div class="swatch-name">Background</div>
+          <div class="swatch-hex">--color-bg · #fff0ef</div>
+          <div class="swatch-role">Page floor, always gradiented</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background: var(--color-surface);"></div>
+        <div class="swatch-meta">
+          <div class="swatch-name">Surface</div>
+          <div class="swatch-hex">--color-surface · #fff9f9</div>
+          <div class="swatch-role">Cards, list rows, controls</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background: var(--color-surface-alt);"></div>
+        <div class="swatch-meta">
+          <div class="swatch-name">Surface Alt</div>
+          <div class="swatch-hex">--color-surface-alt · #ffe1e3</div>
+          <div class="swatch-role">Deeper pink, paired with bg in gradients</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background: var(--color-border);"></div>
+        <div class="swatch-meta">
+          <div class="swatch-name">Border</div>
+          <div class="swatch-hex">--color-border · #f2d7d6</div>
+          <div class="swatch-role">Hairline borders on every card</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="palette-group">
+    <h3>Text</h3>
+    <div class="palette-grid">
+      <div class="swatch">
+        <div class="swatch-color" style="background: var(--color-text);"></div>
+        <div class="swatch-meta">
+          <div class="swatch-name">Text</div>
+          <div class="swatch-hex">--color-text · #493434</div>
+          <div class="swatch-role">Primary reading text — never pure black</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background: var(--color-text-muted);"></div>
+        <div class="swatch-meta">
+          <div class="swatch-name">Text Muted</div>
+          <div class="swatch-hex">--color-text-muted · #826b6a</div>
+          <div class="swatch-role">Captions, "Bài n" subtitles</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="typography">
+  <div class="section-label">🔤 Typography</div>
+  <h2 class="section-heading">Rounded headlines, roomy body text</h2>
+  <p class="section-intro">
+    Headings run <strong>Baloo 2</strong> (Quicksand as web-font fallback) — rounded and
+    Vietnamese-diacritic-capable. Body copy stays on the system sans stack, sized above typical
+    UI defaults so an early reader can scan comfortably.
+  </p>
+
+  <div class="type-row">
+    <div class="type-meta">
+      <strong>Site Title</strong>
+      var(--text-heading)<br />
+      clamp(2.5rem, 1.8rem + 3.5vw, 4.25rem) · 700
+    </div>
+    <div class="type-sample font-heading" style="font-size: clamp(2.5rem, 1.8rem + 3.5vw, 4.25rem); font-weight: 700; color: var(--color-accent-strong);">
+      Lớp học của Moon 🌙
+    </div>
+  </div>
+  <div class="type-row">
+    <div class="type-meta">
+      <strong>Subheading</strong>
+      var(--text-subheading)<br />
+      clamp(1.25rem, 1.1rem + 0.8vw, 1.75rem) · 600
+    </div>
+    <div class="type-sample font-heading" style="font-size: clamp(1.25rem, 1.1rem + 0.8vw, 1.75rem); font-weight: 600; color: var(--color-accent-strong);">
+      Bảng chữ cái 🐰
+    </div>
+  </div>
+  <div class="type-row">
+    <div class="type-meta">
+      <strong>Body</strong>
+      var(--text-base)<br />
+      clamp(1.05rem, 1rem + 0.3vw, 1.2rem) · 400 · line-height 1.6
+    </div>
+    <div class="type-sample font-body" style="font-size: clamp(1.05rem, 1rem + 0.3vw, 1.2rem); line-height: 1.6;">
+      Mỗi ngày một bài học nhỏ, đủ lớn để dễ đọc, đủ mềm mại để không làm bé rối mắt.
+    </div>
+  </div>
+  <div class="type-row">
+    <div class="type-meta">
+      <strong>Caption</strong>
+      0.75rem · 400
+    </div>
+    <div class="type-sample font-body" style="font-size: 0.75rem; color: var(--color-text-muted);">
+      Bài 4 · Thứ Ba, 12 Tháng 8
+    </div>
+  </div>
+</section>
+
+<section id="buttons">
+  <div class="section-label">🕹️ Buttons &amp; Icon Controls</div>
+  <h2 class="section-heading">Pill buttons, floating icon circles</h2>
+  <p class="section-intro">
+    Every button is pill-shaped — no sharp corners anywhere in the system. Icon-only controls
+    (back, fullscreen, zoom, done) sit at low opacity until touched, so the viewer image stays
+    the star of the screen.
+  </p>
+
+  <div class="button-grid">
+    <div class="button-cell">
+      <button class="btn btn-primary" type="button">Xem bài học</button>
+      <span class="button-label">.btn-primary</span>
+    </div>
+    <div class="button-cell">
+      <button class="btn btn-primary is-active" type="button">Xem bài học</button>
+      <span class="button-label">.btn-primary:active</span>
+    </div>
+    <div class="button-cell">
+      <button class="btn btn-secondary" type="button">Về trang chủ</button>
+      <span class="button-label">.btn-secondary</span>
+    </div>
+    <div class="button-cell">
+      <span class="icon-btn is-visible" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+      </span>
+      <span class="button-label">.viewer-icon-button</span>
+    </div>
+    <div class="button-cell">
+      <span class="icon-btn is-visible" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3H5a2 2 0 0 0-2 2v3"/><path d="M21 8V5a2 2 0 0 0-2-2h-3"/><path d="M3 16v3a2 2 0 0 0 2 2h3"/><path d="M16 21h3a2 2 0 0 0 2-2v-3"/></svg>
+      </span>
+      <span class="button-label">fullscreen toggle</span>
+    </div>
+    <div class="button-cell">
+      <span class="icon-btn is-done" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+      </span>
+      <span class="button-label">.viewer-done-toggle.is-done</span>
+    </div>
+  </div>
+</section>
+
+<section id="cards">
+  <div class="section-label">🗂️ Cards &amp; Containers</div>
+  <h2 class="section-heading">Thick, soft, sticker-like surfaces</h2>
+  <p class="section-intro">
+    Cards read as "thick and soft" stickers rather than thin outlines — generous padding,
+    a large radius, and a warm pink shadow instead of a neutral gray one. Bento-grid sizing
+    on the homepage varies card-to-card rather than a uniform grid.
+  </p>
+
+  <div class="card-grid">
+    <div class="topic-card-demo">
+      <span class="mascot" aria-hidden="true">🐰</span>
+      <h3>Bảng chữ cái</h3>
+      <p>12 bài học · đang học Bài 4</p>
+    </div>
+    <div class="topic-card-demo">
+      <span class="mascot" aria-hidden="true">🐻</span>
+      <h3>Số học vui</h3>
+      <p>8 bài học · đang học Bài 2</p>
+    </div>
+    <div class="topic-card-demo">
+      <span class="mascot" aria-hidden="true">🐧</span>
+      <h3>365 Daily English</h3>
+      <p>365 bài học · đang học Ngày 4</p>
+    </div>
+  </div>
+
+  <div class="day-grid-demo">
+    <div class="day-item-demo">
+      <span class="day-sub">Bài 1</span>
+      <span class="day-title">Chữ A, B, C</span>
+    </div>
+    <div class="day-item-demo is-done">
+      <div class="done-badge" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+      </div>
+      <span class="day-sub">Bài 2</span>
+      <span class="day-title">Chữ D, E, F</span>
+    </div>
+    <div class="day-item-demo">
+      <span class="day-sub">Bài 3</span>
+      <span class="day-title">Chữ G, H, I</span>
+    </div>
+  </div>
+</section>
+
+<section id="motion">
+  <div class="section-label">🐾 Motion &amp; Mascots</div>
+  <h2 class="section-heading">Every topic gets a bouncing companion</h2>
+  <p class="section-intro">
+    Motion is the single biggest signature of this brand — a small animal mascot per topic,
+    twinkling background sparkles, and gentle falling snow. All three run on
+    <code>transform</code>/<code>opacity</code> only, and every one is disabled entirely under
+    <code>prefers-reduced-motion: reduce</code>.
+  </p>
+
+  <div class="motion-grid">
+    <div class="motion-cell">
+      <div class="stage"><span class="mv-bounce">🐰</span></div>
+      <span class="motion-name">gentle-bounce · 2.4s</span>
+      <span class="motion-desc">Topic-card &amp; mascot idle loop</span>
+    </div>
+    <div class="motion-cell">
+      <div class="stage"><span class="mv-twinkle">✨</span></div>
+      <span class="motion-name">twinkle · 3s</span>
+      <span class="motion-desc">Background sparkle particles</span>
+    </div>
+    <div class="motion-cell">
+      <div class="stage mv-snow">
+        <span>❄</span><span>❄</span><span>❄</span>
+      </div>
+      <span class="motion-name">snow-fall · 12s linear</span>
+      <span class="motion-desc">Ambient snowfall on index &amp; topic pages</span>
+    </div>
+  </div>
+</section>
+
+<section id="spacing">
+  <div class="section-label">📏 Spacing Scale</div>
+  <h2 class="section-heading">Wide gaps over dense grids</h2>
+  <p class="section-intro">
+    A 5-year-old scans big shapes, not tight information hierarchies — every scale favors
+    breathing room over density.
+  </p>
+
+  <div class="spacing-row">
+    <span class="spacing-label">--space-sm · 0.5rem</span>
+    <div class="spacing-bar" style="width: 0.5rem;"></div>
+  </div>
+  <div class="spacing-row">
+    <span class="spacing-label">--space-md · ~1–1.5rem</span>
+    <div class="spacing-bar" style="width: 1.5rem;"></div>
+  </div>
+  <div class="spacing-row">
+    <span class="spacing-label">--space-section · ~2.5–6rem</span>
+    <div class="spacing-bar" style="width: 6rem;"></div>
+  </div>
+</section>
+
+<section id="radius">
+  <div class="section-label">◠ Border Radius Scale</div>
+  <h2 class="section-heading">No sharp corners anywhere</h2>
+  <p class="section-intro">
+    Cards use a large, consistent radius; buttons and icon controls are always fully pill-shaped.
+  </p>
+
+  <div class="radius-row">
+    <div class="radius-block">
+      <div class="radius-swatch" style="border-radius: var(--radius-list);"></div>
+      <span class="radius-name">--radius-list · 1.25rem</span>
+    </div>
+    <div class="radius-block">
+      <div class="radius-swatch" style="border-radius: var(--radius-card);"></div>
+      <span class="radius-name">--radius-card · 1.75rem</span>
+    </div>
+    <div class="radius-block">
+      <div class="radius-swatch" style="border-radius: var(--radius-pill);"></div>
+      <span class="radius-name">--radius-pill · 999px</span>
+    </div>
+  </div>
+</section>
+
+<section id="elevation">
+  <div class="section-label">🌤️ Elevation &amp; Depth</div>
+  <h2 class="section-heading">Pink shadows, never gray</h2>
+  <p class="section-intro">
+    Depth comes from warm-tinted shadows, not neutral drop shadows — this is one of the biggest
+    tells that separates this system from a generic template.
+  </p>
+
+  <div class="elevation-grid">
+    <div class="elevation-card elevation-flat">
+      <div class="elevation-name">Flat</div>
+      <div class="elevation-detail">no shadow · page background</div>
+    </div>
+    <div class="elevation-card elevation-list">
+      <div class="elevation-name">Day-list item</div>
+      <div class="elevation-detail">0 4px 14px rgba(248,134,154,.12)</div>
+    </div>
+    <div class="elevation-card elevation-topic">
+      <div class="elevation-name">Topic card</div>
+      <div class="elevation-detail">0 8px 24px rgba(248,134,154,.18)</div>
+    </div>
+    <div class="elevation-card elevation-hover">
+      <div class="elevation-name">Hover / focus</div>
+      <div class="elevation-detail">0 12px 28px rgba(248,134,154,.30)</div>
+    </div>
+  </div>
+</section>
+
+<section id="responsive">
+  <div class="section-label">📱 Responsive Behavior</div>
+  <h2 class="section-heading">Bigger touch targets, wider gaps</h2>
+  <p class="section-intro">
+    Verified at the project's standard checkpoints. This app is used by a 5-year-old, so every
+    interactive target sits comfortably above the 44px adult-UI minimum.
+  </p>
+
+  <table class="responsive-table">
+    <thead>
+      <tr><th>Breakpoint</th><th>Width</th><th>Key changes</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Mobile</td><td>320–767px</td><td>Topic grid collapses to 1-up; day-list rows to 2-up</td></tr>
+      <tr><td>Tablet</td><td>768–1023px</td><td>Topic grid 2–3 up; hero stays centered</td></tr>
+      <tr><td>Desktop</td><td>1024–1439px</td><td>Full bento grid; icon controls at fixed corner offsets</td></tr>
+      <tr><td>Wide</td><td>≥1440px</td><td>Same as desktop with extra outer whitespace</td></tr>
+    </tbody>
+  </table>
+
+  <div class="device-ladder" aria-hidden="true">
+    <div class="device-bar"><div class="bar" style="height: 2rem;"></div><div class="bar-label">320</div></div>
+    <div class="device-bar"><div class="bar" style="height: 3.2rem;"></div><div class="bar-label">768</div></div>
+    <div class="device-bar"><div class="bar" style="height: 4.4rem;"></div><div class="bar-label">1024</div></div>
+    <div class="device-bar"><div class="bar" style="height: 5.6rem;"></div><div class="bar-label">1440</div></div>
+  </div>
+
+  <p class="responsive-sub" style="margin-top: 1.5rem;">
+    Icon buttons (<code>.viewer-icon-button</code>) and day-list rows are fully tappable
+    end-to-end, never just the title text. The topic grid reduces column count before it ever
+    shrinks card content — radius and padding stay identical at every breakpoint.
+  </p>
+</section>
+
+<footer>
+  Lớp học của Moon · design tokens sourced from <code>src/moon/css/style.css</code> and <code>docs/design/DESIGN.md</code>
+</footer>
+
+</body>
+</html>
