@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 
 const STORAGE_PREFIX = "moon:progress:";
 
@@ -24,9 +24,11 @@ function writeCompletedDays(topicId: string, days: number[]): void {
 }
 
 export function useProgress(topicId: string) {
-  const [completedDays, setCompletedDays] = useState<Set<number>>(
-    () => new Set(readCompletedDays(topicId)),
-  );
+  const [completedDays, setCompletedDays] = useState<Set<number>>(() => new Set());
+
+  useEffect(() => {
+    setCompletedDays(new Set(readCompletedDays(topicId)));
+  }, [topicId]);
 
   const isDayDone = useCallback((day: number) => completedDays.has(day), [completedDays]);
 

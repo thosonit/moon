@@ -1,12 +1,12 @@
 # Moon - Quỳnh Như
 
-Website học tập tĩnh (static, không build) cho bé Moon - Quỳnh Như, giúp bé chọn chủ đề học và lật xem hình ảnh bài học (mindmap/flashcard) theo từng ngày.
+Website học tập Next.js cho bé Moon - Quỳnh Như, giúp bé chọn chủ đề học và lật xem hình ảnh bài học (mindmap/flashcard) theo từng ngày.
 
 ## Chức năng
 
-- **Trang chủ** (`index.html`) — hiển thị lưới các chủ đề học (topic) để chọn.
-- **Danh sách bài học** (`topic.html?topic=<id>`) — hiển thị danh sách các ngày/bài học trong một chủ đề.
-- **Xem hình bài học** (`day.html?topic=<id>&day=<n>`) — xem hình ảnh bài học toàn màn hình, có nút quay lại, bật/tắt fullscreen, và zoom in/out (1x–4x).
+- **Trang chủ** (`/`) — hiển thị lưới các chủ đề học (topic) để chọn.
+- **Danh sách bài học** (`/topic/<topicId>`) — hiển thị danh sách các ngày/bài học trong một chủ đề, có theo dõi tiến độ hoàn thành.
+- **Xem hình bài học** (`/day/<topicId>/<day>`) — xem hình ảnh bài học toàn màn hình, có nút quay lại, bật/tắt fullscreen, và đánh dấu hoàn thành.
 
 ## Công nghệ
 
@@ -34,4 +34,4 @@ npm install
 npm run dev
 ```
 
-Mở `index.html` → chọn chủ đề → chọn bài → xem hình.
+Mở trang chủ → chọn chủ đề → chọn bài → xem hình.

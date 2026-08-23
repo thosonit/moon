@@ -17,7 +17,7 @@ interface DayViewerProps {
 }
 
 const ICON_BUTTON_CLASS =
-  "viewer-icon-button fixed z-10 flex h-11 w-11 items-center justify-center rounded-full border-2 bg-surface shadow-icon transition-[opacity,transform,border-color] duration-150 hover:scale-105 focus-visible:scale-105 focus-visible:outline-none active:scale-95";
+  "viewer-icon-button fixed z-10 flex h-11 w-11 items-center justify-center rounded-full border-2 bg-surface shadow-icon transition-[opacity,transform,border-color] duration-150 hover:scale-105 focus-visible:scale-105 focus-visible:outline-none active:scale-95 [&.tv-focused]:scale-105 [&.tv-focused]:border-accent [&.tv-focused]:opacity-100";
 
 export function DayViewer({ topicId, topicTitle, totalDays, day, imageUrl }: DayViewerProps) {
   const router = useRouter();

@@ -1,3 +1,3 @@
 # Architecture
 
-N/A for this project. `moon` is a static, no-build website (`src/moon/`) — vanilla HTML/CSS/JS with no framework, so there is no `NEXT_ARCHITECTURE.md` or `FLUTTER_ARCHITECTURE.md` to maintain here. See the project root `CLAUDE.md` for the actual structure.
+`moon` is a Next.js (App Router) app — routes in `app/`, React components in `components/`, data access in `lib/`. No `NEXT_ARCHITECTURE.md` beyond this is needed; see the project root `CLAUDE.md` for the actual structure.

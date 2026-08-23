@@ -30,7 +30,7 @@ vercel.json    # Must stay at repo root
 
 - Follow [`docs/design/DESIGN.md`](./docs/design/DESIGN.md) for all styling/layout/animation — don't introduce ad hoc tokens.
 - Icons: [Lucide Icons](https://lucide.dev) only for functional UI controls. No emoji/other icon sets for buttons/nav/status — emoji are fine for decorative flourishes per `DESIGN.md`.
-- No build step, no tests/linter/CI configured — this is deliberate, not an oversight.
+- No test framework or linter is configured — this is deliberate, not an oversight (Next.js's own build/typecheck is the only verification gate).
 - UI copy is in Vietnamese; keep new user-facing text consistent with the existing tone.
 
 ## Running locally
