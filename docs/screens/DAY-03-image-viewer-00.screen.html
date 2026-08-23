@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>DAY-03 — Image Viewer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link
+  href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700&family=Quicksand:wght@500;700&display=swap"
+  rel="stylesheet"
+/>
+<link rel="stylesheet" href="../../src/moon/css/style.css" />
+<style>
+  /* Prototype-only: keep icon buttons visible without needing real :hover/:focus. */
+  .viewer-icon-button { opacity: 1 !important; }
+</style>
+</head>
+<body>
+  <div class="viewer">
+    <a class="viewer-icon-button viewer-back" href="#" aria-label="Danh sách" title="Danh sách">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+    </a>
+    <span class="viewer-date">23 Aug 2026</span>
+    <div class="viewer-info">
+      <span class="viewer-info-day">3</span>
+    </div>
+    <div class="viewer-image-wrap">
+      <p class="placeholder">Chưa có ảnh</p>
+    </div>
+    <button type="button" class="viewer-icon-button viewer-fullscreen" aria-label="Toàn màn hình" title="Toàn màn hình">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3H5a2 2 0 0 0-2 2v3"/><path d="M21 8V5a2 2 0 0 0-2-2h-3"/><path d="M3 16v3a2 2 0 0 0 2 2h3"/><path d="M16 21h3a2 2 0 0 0 2-2v-3"/></svg>
+    </button>
+    <button type="button" class="viewer-icon-button viewer-done-toggle" aria-label="Đánh dấu hoàn thành" title="Đánh dấu hoàn thành">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/></svg>
+    </button>
+  </div>
+</body>
+</html>
