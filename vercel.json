@@ -1,4 +1,5 @@
 {
+  "outputDirectory": "src/moon",
   "cleanUrls": true,
   "trailingSlash": false,
   "headers": [
