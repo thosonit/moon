@@ -18,7 +18,7 @@ docs/
 ├── architecture/  # N/A — no backend beyond the two thin API routes in app/api
 ├── specs/         # Feature specs
 ├── api/           # N/A — see app/api/*/route.ts for the two JSON endpoints
-├── database/      # N/A — data lives in public/data/*.json
+├── database/      # db.md — data structure overview (lesson JSON + localStorage progress)
 ├── screens/       # Per-screen docs + .screen.html prototypes
 ├── design/        # DESIGN.md — the design system source of truth
 └── superpowers/   # Per-task specs/plans (superpowers plugin defaults)
