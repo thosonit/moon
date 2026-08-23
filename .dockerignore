@@ -1,0 +1,8 @@
+node_modules
+.next
+.git
+.worktrees
+docs
+tests
+*.md
+.DS_Store
