@@ -27,7 +27,7 @@ export default async function TopicPage({ params }: TopicPageProps) {
           href="/"
           aria-label="Về trang chủ"
           title="Về trang chủ"
-          className="col-start-1 flex h-11 w-11 items-center justify-center rounded-full border-2 border-border bg-surface text-accent-strong shadow-icon"
+          className="viewer-icon-button col-start-1 flex h-11 w-11 items-center justify-center rounded-full border-2 border-border bg-surface text-accent-strong opacity-40 shadow-icon transition-[opacity,transform,border-color] duration-150 hover:scale-105 hover:border-accent hover:opacity-100 focus-visible:scale-105 focus-visible:border-accent focus-visible:opacity-100 focus-visible:outline-none active:scale-95"
         >
           <ArrowLeft className="h-5 w-5" />
         </Link>
