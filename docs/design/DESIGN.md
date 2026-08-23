@@ -4,13 +4,13 @@ name: Moon-kawaii-design
 description: A soft pastel-pink "kawaii sticker book" interface built for a 5-year-old girl (Moon - Quỳnh Như) browsing learning topics and daily lesson pages. The system anchors on a warm pink-tinted canvas with large rounded "kawaii" cards, a friendly rounded font pairing (Baloo 2 display / Quicksand body), and gentle looping animal-mascot animations (bounce, wave, twinkle, fly-across) built from compositor-friendly transform/opacity keyframes. Brand voltage comes from bubblegum-pink accents against a soft cream-pink surface — deliberately playful and tactile where most learning-app UIs default to flat, neutral templates.
 
 colors:
+  primary: "oklch(75% 0.14 10)"
+  primary-strong: "oklch(42% 0.16 8)"
   bg: "oklch(97% 0.02 20)"
   surface: "oklch(99% 0.01 20)"
   surface-alt: "oklch(94% 0.04 15)"
   text: "oklch(35% 0.03 20)"
   text-muted: "oklch(55% 0.03 20)"
-  accent: "oklch(75% 0.14 10)"
-  accent-strong: "oklch(62% 0.18 8)"
   secondary: "oklch(85% 0.08 340)"
   tertiary: "oklch(90% 0.09 90)"
   success: "oklch(85% 0.12 150)"
@@ -19,60 +19,72 @@ colors:
 typography:
   hero:
     fontFamily: "Baloo 2, Quicksand, -apple-system, sans-serif"
-    fontSize: "clamp(2.25rem, 1.6rem + 3vw, 4rem)"
+    fontSize: 3.5rem
     fontWeight: 700
     lineHeight: 1.15
   heading:
     fontFamily: "Baloo 2, Quicksand, -apple-system, sans-serif"
-    fontSize: "clamp(1.75rem, 1.4rem + 2vw, 2.75rem)"
+    fontSize: 2.25rem
     fontWeight: 700
     lineHeight: 1.2
   body:
     fontFamily: "-apple-system, BlinkMacSystemFont, Segoe UI, sans-serif"
-    fontSize: "clamp(1.1rem, 1rem + 0.4vw, 1.35rem)"
+    fontSize: 1.125rem
     fontWeight: 400
     lineHeight: 1.6
 
 rounded:
-  card: "1.5rem-2rem"
+  card: 1.75rem
   pill: 999px
 
 spacing:
-  section: "clamp(4rem, 3rem + 5vw, 10rem)"
+  section: 6rem
 
 components:
+  page:
+    backgroundColor: "{colors.bg}"
+    textColor: "{colors.text}"
+  hero-surface:
+    backgroundColor: "{colors.surface-alt}"
   button-primary:
-    backgroundColor: "{colors.accent}"
+    backgroundColor: "{colors.primary-strong}"
     textColor: "#ffffff"
     rounded: "{rounded.pill}"
   button-icon:
     backgroundColor: "{colors.surface}"
-    textColor: "{colors.accent-strong}"
-    rounded: "{rounded.full}"
+    textColor: "{colors.primary-strong}"
+    rounded: "{rounded.pill}"
   topic-card:
     backgroundColor: "{colors.surface}"
     textColor: "{colors.text}"
     rounded: "{rounded.card}"
-    shadow: "0 8px 24px oklch(75% 0.14 10 / 0.25)"
   day-list-item:
     backgroundColor: "{colors.surface}"
     textColor: "{colors.text}"
     rounded: "{rounded.card}"
+  day-list-item-subtitle:
+    textColor: "{colors.text-muted}"
+  day-list-item-completed:
+    backgroundColor: "{colors.success}"
+    textColor: "{colors.text}"
+    rounded: "{rounded.card}"
+  divider:
+    backgroundColor: "{colors.border}"
 ---
 
 ## Overview
 
 Moon's interface is built for a 5-year-old girl browsing daily lesson pages — every decision optimizes for delight, big touch targets, and gentle motion over information density. The base atmosphere is a **soft pink-tinted canvas** (`{colors.bg}`) with a subtle gradient into `{colors.surface-alt}`, never a flat single tone. Headlines run **Baloo 2** (or Quicksand as fallback) — rounded, friendly, weight 700 — paired with system sans body copy sized larger than typical UI for early-reader legibility.
 
-Brand voltage comes from **bubblegum pink** (`{colors.accent}`), used on primary buttons, active states, and headline accents, with lilac (`{colors.secondary}`) and butter-yellow (`{colors.tertiary}`) reserved for small decorative moments — stars, badges, mascots — never competing with the pink.
+Brand voltage comes from **bubblegum pink** (`{colors.primary}`), used on primary buttons, active states, and headline accents, with lilac (`{colors.secondary}`) and butter-yellow (`{colors.tertiary}`) reserved for small decorative moments — stars, badges, mascots — never competing with the pink.
 
 Each topic has a companion animal mascot (rabbit, cat, bear, dog, penguin) rendered as simple flat SVG and animated with looping CSS keyframes: gentle bounce on cards, a wave on the homepage hero, background twinkle sparkles, and a one-shot fly-across when entering the day viewer. All motion respects `prefers-reduced-motion`.
 
 **Key Characteristics:**
 - Warm pink canvas (`{colors.bg}`) with pink-tinted gradient into `{colors.surface-alt}` — never flat white or gray.
-- Bubblegum accent (`{colors.accent}`) on primary buttons and active states; `{colors.accent-strong}` on hover/press.
+- Bubblegum accent (`{colors.primary}`) on primary buttons and active states; `{colors.primary-strong}` on hover/press.
 - Baloo 2 / Quicksand rounded display font at weight 700, always paired with an emoji (🌙🌸🐰) in headings.
-- Large border radii (`1.5rem`–`2rem` on cards, pill on buttons) — no sharp corners anywhere.
+- Large border radii (`1.75rem` on cards, pill on buttons) — no sharp corners anywhere.
 - Soft pink drop shadows instead of gray shadows, giving cards a "floating sticker" feel.
 - Per-topic animal mascots animated via `transform`/`opacity`-only keyframes — bounce, wave, twinkle, fly-across.
 - Text sized above typical UI defaults (`{typography.body}` ~1.1–1.35rem) and line-height 1.6+ for a 5-year-old's reading comfort.
@@ -80,9 +92,9 @@ Each topic has a companion animal mascot (rabbit, cat, bear, dog, penguin) rende
 
 ## Colors
 
-### Brand & Accent
-- **Accent / Bubblegum Pink** (`{colors.accent}` — oklch(75% 0.14 10)): The signature Moon pink. Used on titles, primary buttons, active borders, and standout icons.
-- **Accent Strong** (`{colors.accent-strong}` — oklch(62% 0.18 8)): Hover/active press state for buttons and icons — a deeper, more saturated pink.
+### Brand & Primary
+- **Primary / Bubblegum Pink** (`{colors.primary}` — oklch(75% 0.14 10)): The signature Moon pink. Used on titles, primary buttons, active borders, and standout icons.
+- **Primary Strong** (`{colors.primary-strong}` — oklch(42% 0.16 8)): Hover/active press state for buttons and icons — a deeper, more saturated pink.
 - **Secondary / Lilac** (`{colors.secondary}` — oklch(85% 0.08 340)): Decorative accent only — badges, mascot details, star/reward moments. Never the dominant color.
 - **Tertiary / Butter Yellow** (`{colors.tertiary}` — oklch(90% 0.09 90)): Sunshine accent for reward highlights, alongside secondary.
 - **Success / Mint** (`{colors.success}` — oklch(85% 0.12 150)): Completed-lesson state — card border and star-burst reward animation.
@@ -106,9 +118,9 @@ Display headings use **Baloo 2** with **Quicksand** as the web-font fallback —
 
 | Token | Size | Weight | Line Height | Use |
 |---|---|---|---|---|
-| `{typography.hero}` | clamp(2.25rem, 1.6rem + 3vw, 4rem) | 700 | 1.15 | Homepage hero title, always with an emoji |
-| `{typography.heading}` | clamp(1.75rem, 1.4rem + 2vw, 2.75rem) | 700 | 1.2 | Section headings, topic titles |
-| `{typography.body}` | clamp(1.1rem, 1rem + 0.4vw, 1.35rem) | 400 | 1.6 | Running text — larger than typical UI default for early readers |
+| `{typography.hero}` | 3.5rem | 700 | 1.15 | Homepage hero title, always with an emoji |
+| `{typography.heading}` | 2.25rem | 700 | 1.2 | Section headings, topic titles |
+| `{typography.body}` | 1.125rem | 400 | 1.6 | Running text — larger than typical UI default for early readers |
 
 ### Principles
 Headings always pair with a decorative emoji (🌙🌸🐰) — this is not optional flourish, it's the primary "friendliness" signal for a pre-literate/early-reading child. Body text stays large (min ~18px rendered) and generously spaced (line-height 1.6+); never shrink type to fit layout — grow the layout instead.
@@ -119,7 +131,7 @@ If Baloo 2 is unavailable, Quicksand is the direct fallback (already rounded, sa
 ## Layout
 
 ### Spacing System
-- **Section rhythm:** `{spacing.section}` — fluid `clamp(4rem, 3rem + 5vw, 10rem)` between major page bands.
+- **Section rhythm:** `{spacing.section}` — fluid `6rem` between major page bands.
 - **Card internal padding:** generous, scaled to the large border radius — cards should read as "thick and soft," not thin outlines.
 - **Breathing room:** favor large gaps over dense grids; a 5-year-old scans big shapes, not tight information hierarchies.
 
@@ -153,7 +165,7 @@ The elevation philosophy is **pink-shadow-first, gray-shadow-never**. Depth come
 
 | Token | Value | Use |
 |---|---|---|
-| `{rounded.card}` | 1.5rem–2rem | Topic cards, day-list rows, all container surfaces |
+| `{rounded.card}` | 1.75rem | Topic cards, day-list rows, all container surfaces |
 | `{rounded.pill}` | 999px | All buttons — primary and icon buttons alike |
 
 ### Illustration Style
@@ -163,9 +175,9 @@ Mascots and decorative elements are flat, simple-shape SVG illustrations (2–3 
 
 ### Buttons
 
-**`button-primary`** — Pill-shaped, background `{colors.accent}`, white text. Hover: `transform: scale(1.05)` plus a deepened pink shadow. Active/press: `transform: scale(0.95)` for clear tactile feedback for small fingers.
+**`button-primary`** — Pill-shaped, background `{colors.primary}`, white text. Hover: `transform: scale(1.05)` plus a deepened pink shadow. Active/press: `transform: scale(0.95)` for clear tactile feedback for small fingers.
 
-**`button-icon`** — Circular icon-only buttons (back, fullscreen, zoom in the day viewer). Background `{colors.surface}`, icon color `{colors.accent-strong}`, hairline `{colors.border}` outline. Default state sits at low opacity, rising to full opacity on hover/focus (`.viewer-icon-button` pattern).
+**`button-icon`** — Circular icon-only buttons (back, fullscreen, zoom in the day viewer). Background `{colors.surface}`, icon color `{colors.primary-strong}`, hairline `{colors.border}` outline. Default state sits at low opacity, rising to full opacity on hover/focus (`.viewer-icon-button` pattern).
 
 ### Cards
 
@@ -190,7 +202,7 @@ All four motion primitives are disabled entirely under `prefers-reduced-motion: 
 ### Do
 - Anchor every page on the pink-gradient canvas (`{colors.bg}` → `{colors.surface-alt}`). Flat single-tone backgrounds read as generic template.
 - Pair every heading with a decorative emoji (🌙🌸🐰).
-- Use pill shape for every button, large radii (`1.5rem`–`2rem`) for every card — no sharp corners anywhere in the system.
+- Use pill shape for every button, large radii (`1.75rem`) for every card — no sharp corners anywhere in the system.
 - Use pink-tinted shadows (`oklch(75% 0.14 10 / 0.25)`) instead of gray/neutral shadows on all elevated surfaces.
 - Give every topic its own animal mascot, animated with `transform`/`opacity` keyframes only.
 - Guard every looping animation with `prefers-reduced-motion: reduce`.
