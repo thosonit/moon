@@ -10,12 +10,16 @@ Website học tập tĩnh (static, không build) cho bé Moon - Quỳnh Như, gi
 
 ## Công nghệ
 
-Vanilla HTML/CSS/JS, không framework, không bundler. Dữ liệu chủ đề/bài học lưu trong file JSON tĩnh, ảnh bài học lưu ở dạng webp. Triển khai tĩnh trên Vercel.
+Next.js (App Router), TypeScript, Tailwind CSS. Dữ liệu chủ đề/bài học lưu trong file JSON tĩnh dưới `public/data/`, ảnh bài học lưu ở dạng webp. Triển khai trên Vercel.
 
 ## Cấu trúc dự án
 
 ```text
-src/moon/     # Toàn bộ mã nguồn website (HTML/CSS/JS/data)
+app/          # Routes và API endpoints
+components/   # React components
+hooks/        # Custom hooks (progress, keyboard/TV navigation)
+lib/          # Data access, types
+public/data/  # JSON + ảnh bài học
 docs/         # Tài liệu dự án (design system, specs, screens...)
 tests/        # (chưa dùng)
 vercel.json   # Cấu hình deploy Vercel
@@ -26,9 +30,8 @@ Xem chi tiết trong [`CLAUDE.md`](./CLAUDE.md).
 ## Chạy thử local
 
 ```bash
-npx serve src/moon
-# hoặc
-python3 -m http.server 8000 --directory src/moon
+npm install
+npm run dev
 ```
 
 Mở `index.html` → chọn chủ đề → chọn bài → xem hình.

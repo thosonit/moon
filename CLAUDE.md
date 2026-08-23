@@ -4,23 +4,26 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## What this is
 
-A static, no-build website. See [`README.md`](./README.md) for what it does. Vanilla HTML/CSS/JS, no framework, no bundler, no package.json. Deployed on Vercel — source lives in `src/moon/`, and the repo-root `vercel.json` points Vercel's `outputDirectory` there.
+A Next.js (App Router) website. See [`README.md`](./README.md) for what it does. TypeScript, Tailwind CSS, no database. Deployed on Vercel using Next.js's own build output.
 
 ## Structure
 
 ```text
-.claude/       # Assistant config: skills, agents, hooks, settings
-src/moon/      # The site itself — all HTML/CSS/JS/data
+app/           # Routes: /, /topic/[topicId], /day/[topicId]/[day], /api/topics/*
+components/    # React components (TopicGrid, DayList, DayViewer, Snowfall, ...)
+hooks/         # useProgress, useGridNav, useBackKey
+lib/           # data.ts (reads JSON under public/data), drive-url.ts, types.ts
+public/data/   # topics.json, per-topic day JSON, images — served as static files
 docs/
-├── architecture/  # N/A — no framework/backend for this static site
+├── architecture/  # N/A — no backend beyond the two thin API routes in app/api
 ├── specs/         # Feature specs
-├── api/           # N/A — no server/API layer
-├── database/      # N/A — data lives in src/moon/data/*.json
+├── api/           # N/A — see app/api/*/route.ts for the two JSON endpoints
+├── database/      # N/A — data lives in public/data/*.json
 ├── screens/       # Per-screen docs + .screen.html prototypes
 ├── design/        # DESIGN.md — the design system source of truth
 └── superpowers/   # Per-task specs/plans (superpowers plugin defaults)
 tests/         # Not used yet — no test runner configured
-vercel.json    # Must stay at repo root; outputDirectory: "src/moon"
+vercel.json    # Must stay at repo root
 ```
 
 ## Rules
@@ -33,7 +36,6 @@ vercel.json    # Must stay at repo root; outputDirectory: "src/moon"
 ## Running locally
 
 ```bash
-npx serve src/moon
-# or
-python3 -m http.server 8000 --directory src/moon
+npm install
+npm run dev
 ```
