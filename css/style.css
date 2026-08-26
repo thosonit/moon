@@ -304,6 +304,28 @@ main {
   position: relative;
 }
 
+.day-list-item.is-unavailable a {
+  background: var(--color-surface-alt, var(--color-surface));
+  border-color: var(--color-border);
+  box-shadow: none;
+  opacity: 0.5;
+  filter: grayscale(0.6);
+  cursor: default;
+}
+
+.day-list-item.is-unavailable a:hover,
+.day-list-item.is-unavailable a:focus-visible,
+.day-list-item.is-unavailable a.tv-focused {
+  transform: none;
+  border-color: var(--color-border);
+  box-shadow: none;
+}
+
+.day-list-item.is-unavailable .day-list-title,
+.day-list-item.is-unavailable .day-list-subtitle {
+  color: var(--color-text-muted);
+}
+
 /* Viewer (day.html) */
 .viewer {
   position: fixed;

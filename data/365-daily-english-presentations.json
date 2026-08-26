@@ -9,17 +9,17 @@
   },
   {
     "day": 3,
-    "imagePath": "data/images/365-daily-english-presentations-p003.webp",
+    "imagePath": "data/images/365-daily-english-presentations/365-daily-english-presentations-p003.webp",
     "title": "My Family"
   },
   {
     "day": 4,
-    "imagePath": "data/images/365-daily-english-presentations-p004.webp",
+    "imagePath": "data/images/365-daily-english-presentations/365-daily-english-presentations-p004.webp",
     "title": "My Mom"
   },
   {
     "day": 5,
-    "imagePath": "data/images/365-daily-english-presentations-p005.webp",
+    "imagePath": "data/images/365-daily-english-presentations/365-daily-english-presentations-p005.webp",
     "title": "My Dad"
   },
   {
@@ -76,7 +76,7 @@
   },
   {
     "day": 19,
-    "imagePath": "data/images/365-daily-english-presentations-p019.png",
+    "imagePath": "data/images/365-daily-english-presentations/365-daily-english-presentations-p019.png",
     "title": "My School"
   },
   {

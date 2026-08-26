@@ -47,13 +47,18 @@ function renderDays(topicId, topicMeta, days) {
     const item = document.createElement("li");
     item.className = "day-list-item";
     const isDone = completedDays.has(entry.day);
+    const hasImage = Boolean(entry.imagePath || entry.driveUrl);
     item.classList.toggle("is-done", isDone);
+    item.classList.toggle("is-unavailable", !hasImage);
     if (entry.day === latestDoneDay) {
       latestDoneItem = item;
     }
 
     const link = document.createElement("a");
     link.href = `day.html?topic=${encodeURIComponent(topicId)}&day=${entry.day}`;
+    if (!hasImage) {
+      link.setAttribute("aria-disabled", "true");
+    }
     if (entry.day === nextDay) {
       nextLink = link;
     }
