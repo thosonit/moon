@@ -1,5 +1,6 @@
 import { initSnowfall } from "./snowfall.js";
 import { enableGridNav } from "./tv-nav.js";
+import { getCompletedDays } from "./progress.js";
 
 const TOPIC_MASCOTS = ["🐰", "🐻", "🐱", "🐧", "🦊", "🐼"];
 
@@ -25,13 +26,18 @@ function renderTopics(topics) {
     mascot.setAttribute("aria-hidden", "true");
     mascot.textContent = TOPIC_MASCOTS[index % TOPIC_MASCOTS.length];
 
+    const count = document.createElement("span");
+    count.className = "topic-card-count";
+    count.textContent = `${topic.totalDays} bài`;
+
     const title = document.createElement("h2");
     title.textContent = topic.title;
 
+    const completed = getCompletedDays(topic.id).size;
     const meta = document.createElement("p");
-    meta.textContent = `${topic.totalDays} ngày`;
+    meta.textContent = `Hoàn thành: ${completed}/${topic.totalDays}`;
 
-    card.append(mascot, title, meta);
+    card.append(count, mascot, title, meta);
     grid.append(card);
   });
 

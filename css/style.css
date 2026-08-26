@@ -203,6 +203,18 @@ main {
   transform: scale(0.97);
 }
 
+.topic-card-count {
+  position: absolute;
+  top: 0.65rem;
+  right: 0.65rem;
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
+  background: var(--color-surface-alt, var(--color-surface));
+  color: var(--color-text-muted);
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
 .topic-mascot {
   display: inline-block;
   font-size: 2rem;
