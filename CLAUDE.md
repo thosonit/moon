@@ -31,13 +31,13 @@ There are no tests, linter, or build/CI commands configured in this repo.
 Three pages, each backed by one JS module (no router, plain query-string params):
 
 - `index.html` + `js/app.js` — fetches `data/topics.json`, renders a grid of topic cards linking to `topic.html?topic=<id>`.
-- `topic.html` + `js/topic.js` — reads `?topic=` from the URL, fetches `data/topics.json` for metadata and `data/<topicId>.json` for the day list, renders `<li>` entries (title as main label, `Bài <n>` as subtitle) linking to `day.html`.
+- `topic.html` + `js/topic.js` — reads `?topic=` from the URL, fetches `data/topics.json` for metadata and `data/topics/<topicId>.json` for the day list, renders `<li>` entries (title as main label, `Bài <n>` as subtitle) linking to `day.html`.
 - `day.html` + `js/day.js` — reads `?topic=` and `?day=` from the URL, loads the same two JSON sources, and renders a fullscreen image viewer for that day's page.
 
 Data layer (`data/`):
 - `topics.json` — array of `{ id, title, totalDays }`, one entry per topic.
-- `<topicId>.json` (e.g. `mindmap-heineman-gk7.json`) — array of `{ day, imagePath, title, driveUrl? }`, one entry per lesson day. `imagePath` (local file under `data/images/`) is preferred; `driveUrl` is a fallback resolved at render time via `js/drive-url.js`.
-- `data/images/` — the actual lesson page images (webp).
+- `data/topics/<topicId>.json` (e.g. `mindmap-heineman-gk7.json`) — array of `{ day, imagePath, title, driveUrl? }`, one entry per lesson day. `imagePath` (local file under `data/images/`) is preferred; `driveUrl` is a fallback resolved at render time via `js/drive-url.js`.
+- `data/images/<topicId>/` — the actual lesson page images (webp), namespaced by topic.
 - Source PDFs used to generate the per-day images are gitignored (`data/*.pdf`) and not committed.
 
 `js/drive-url.js` exports `toDirectImageUrl(driveUrl)`, converting a Google Drive share link into a hotlink-friendly `lh3.googleusercontent.com` URL (the `drive.google.com/uc` endpoint 503s when embedded in an `<img>`). Used as a fallback when an entry has no local `imagePath`.
@@ -56,8 +56,8 @@ All floating icon buttons share the `.viewer-icon-button` style: circular, low o
 ## Adding a new topic
 
 1. Add an entry to `data/topics.json` (`id`, `title`, `totalDays`).
-2. Create `data/<id>.json` with one `{ day, imagePath, title }` object per day, `imagePath` pointing into `data/images/`.
-3. Drop the corresponding images into `data/images/`.
+2. Create `data/topics/<id>.json` with one `{ day, imagePath, title }` object per day, `imagePath` pointing into `data/images/<id>/`.
+3. Drop the corresponding images into `data/images/<id>/`.
 
 ## Content language
 

@@ -20,9 +20,9 @@ async function loadTopicMeta(topicId) {
 }
 
 async function loadDays(topicId) {
-  const response = await fetch(`data/${topicId}.json`);
+  const response = await fetch(`data/topics/${topicId}.json`);
   if (!response.ok) {
-    throw new Error(`Failed to load data/${topicId}.json: ${response.status}`);
+    throw new Error(`Failed to load data/topics/${topicId}.json: ${response.status}`);
   }
   return response.json();
 }
