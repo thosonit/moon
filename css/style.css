@@ -172,13 +172,15 @@ main {
 /* Topic grid (index.html) */
 .topic-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+  align-items: start;
   gap: var(--space-md);
 }
 
 .topic-card {
   position: relative;
-  display: block;
+  display: flex;
+  flex-direction: column;
   padding: var(--space-md);
   background: var(--color-surface);
   border: 2px solid var(--color-border);
@@ -207,18 +209,29 @@ main {
   position: absolute;
   top: 0.65rem;
   right: 0.65rem;
-  padding: 0.2rem 0.6rem;
+  padding: 0.2rem 0.65rem;
   border-radius: 999px;
-  background: var(--color-surface-alt, var(--color-surface));
-  color: var(--color-text-muted);
+  background: var(--color-tertiary);
+  color: var(--color-accent-strong);
   font-size: 0.75rem;
-  font-weight: 600;
+  font-weight: 700;
+}
+
+.topic-card-mascot-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 3.25rem;
+  height: 3.25rem;
+  margin-bottom: var(--space-sm);
+  border-radius: 50%;
+  background: var(--color-surface-alt, var(--color-surface));
+  box-shadow: 0 4px 10px rgba(248, 134, 154, 0.2);
 }
 
 .topic-mascot {
   display: inline-block;
-  font-size: 2rem;
-  margin-bottom: var(--space-sm);
+  font-size: 1.65rem;
   animation: gentle-bounce 2.4s var(--ease-out-expo) infinite;
 }
 
@@ -232,9 +245,32 @@ main {
   color: var(--color-accent-strong);
 }
 
-.topic-card p {
+.topic-card-progress {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  margin-top: auto;
+}
+
+.topic-card-progress-track {
+  flex: 1;
+  height: 0.4rem;
+  border-radius: 999px;
+  background: var(--color-border);
+  overflow: hidden;
+}
+
+.topic-card-progress-fill {
+  height: 100%;
+  border-radius: 999px;
+  background: var(--color-success);
+  transition: width var(--duration-normal) var(--ease-out-expo);
+}
+
+.topic-card-progress-label {
+  flex-shrink: 0;
   color: var(--color-text-muted);
-  margin: 0;
+  font-size: 0.8rem;
 }
 
 /* Day list (topic.html) */
